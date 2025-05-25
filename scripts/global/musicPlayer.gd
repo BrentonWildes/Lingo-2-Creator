@@ -1,11 +1,13 @@
 extends AudioStreamPlayer
 
 var all_tracks = { 
-	"the_icy_height_palette": preload("res://assets/audio/music/the_icy_height_palette.mp3")
+	"the_icy_height_palette": preload("res://assets/audio/music/the_icy_height_palette.mp3"),
+	"connotation_concoction": preload("res://assets/audio/music/connotation_concoction.mp3")
 }
 
 var default_rotating_tracks = [
-	"the_icy_height_palette"
+	"the_icy_height_palette",
+	"connotation_concoction"
 ]
 
 var base_scene_mappings = {
