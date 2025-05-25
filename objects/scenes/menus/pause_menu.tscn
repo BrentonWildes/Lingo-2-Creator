@@ -1,0 +1,208 @@
+[gd_scene load_steps=6 format=3 uid="uid://b21q8uts26n5f"]
+
+[ext_resource type="Script" path="res://scripts/ui/pauseMenu.gd" id="1_b7r3c"]
+[ext_resource type="Theme" uid="uid://7w454egydi41" path="res://assets/themes/baseUI.tres" id="1_wbyk3"]
+[ext_resource type="PackedScene" uid="uid://c2jauk2c6wlsl" path="res://objects/scenes/menus/rte_inner.tscn" id="3_0bpbq"]
+[ext_resource type="PackedScene" uid="uid://bu5qagcvk65p7" path="res://objects/scenes/menus/settings_inner.tscn" id="3_c2yyq"]
+[ext_resource type="PackedScene" uid="uid://dxibmlb6mused" path="res://objects/scenes/menus/controls_inner.tscn" id="3_hp1fv"]
+
+[node name="pause_menu" type="CanvasLayer"]
+script = ExtResource("1_b7r3c")
+
+[node name="menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="rect" type="ColorRect" parent="menu"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.25098)
+
+[node name="default" type="Control" parent="menu"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="button_resume" type="Button" parent="menu/default"]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 175.0
+offset_right = 1275.0
+offset_bottom = 325.0
+focus_neighbor_top = NodePath("../button_main_menu")
+focus_neighbor_bottom = NodePath("../button_rte")
+focus_next = NodePath("../button_rte")
+focus_previous = NodePath("../button_main_menu")
+theme = ExtResource("1_wbyk3")
+theme_override_font_sizes/font_size = 60
+text = "resume"
+
+[node name="button_rte" type="Button" parent="menu/default"]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 375.0
+offset_right = 1275.0
+offset_bottom = 525.0
+focus_neighbor_top = NodePath("../button_resume")
+focus_neighbor_bottom = NodePath("../button_settings")
+focus_next = NodePath("../button_settings")
+focus_previous = NodePath("../button_resume")
+theme = ExtResource("1_wbyk3")
+theme_override_font_sizes/font_size = 60
+text = "return to..."
+
+[node name="button_rte_basic" type="Button" parent="menu/default"]
+visible = false
+layout_mode = 0
+offset_left = 645.0
+offset_top = 375.0
+offset_right = 1275.0
+offset_bottom = 525.0
+focus_neighbor_top = NodePath("../button_resume")
+focus_neighbor_bottom = NodePath("../button_settings")
+focus_next = NodePath("../button_settings")
+focus_previous = NodePath("../button_resume")
+theme = ExtResource("1_wbyk3")
+theme_override_font_sizes/font_size = 60
+text = "return to entry"
+
+[node name="button_settings" type="Button" parent="menu/default"]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 575.0
+offset_right = 1275.0
+offset_bottom = 725.0
+focus_neighbor_top = NodePath("../button_rte")
+focus_neighbor_bottom = NodePath("../button_main_menu")
+focus_next = NodePath("../button_main_menu")
+focus_previous = NodePath("../button_rte")
+theme = ExtResource("1_wbyk3")
+theme_override_font_sizes/font_size = 60
+text = "settings"
+
+[node name="button_controls" type="Button" parent="menu/default"]
+layout_mode = 0
+offset_left = 1720.0
+offset_top = 880.0
+offset_right = 1870.0
+offset_bottom = 1030.0
+focus_neighbor_left = NodePath("../button_main_menu")
+focus_neighbor_top = NodePath("../button_rte")
+focus_neighbor_bottom = NodePath("../button_main_menu")
+focus_next = NodePath("../button_main_menu")
+focus_previous = NodePath("../button_rte")
+theme = ExtResource("1_wbyk3")
+theme_override_font_sizes/font_size = 60
+text = "?
+"
+
+[node name="button_main_menu" type="Button" parent="menu/default"]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 775.0
+offset_right = 1275.0
+offset_bottom = 925.0
+focus_neighbor_top = NodePath("../button_settings")
+focus_neighbor_right = NodePath("../button_controls")
+focus_neighbor_bottom = NodePath("../button_resume")
+focus_next = NodePath("../button_resume")
+focus_previous = NodePath("../button_settings")
+theme = ExtResource("1_wbyk3")
+theme_override_font_sizes/font_size = 60
+text = "main menu"
+
+[node name="map_name" type="Label" parent="menu/default"]
+layout_mode = 0
+offset_top = 940.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = ExtResource("1_wbyk3")
+theme_override_colors/font_shadow_color = Color(0.32549, 0, 0.368627, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 15
+theme_override_font_sizes/font_size = 80
+text = "the entry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="controls" type="Control" parent="menu"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="rect2" type="ColorRect" parent="menu/controls"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.32549, 0, 0.368627, 1)
+
+[node name="controlsInner" parent="menu/controls" instance=ExtResource("3_hp1fv")]
+
+[node name="controls_close" type="Button" parent="menu/controls"]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 900.0
+offset_right = 1275.0
+offset_bottom = 1050.0
+theme = ExtResource("1_wbyk3")
+theme_override_font_sizes/font_size = 60
+text = "back"
+
+[node name="return" type="Control" parent="menu"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="rteInner" parent="menu/return" instance=ExtResource("3_0bpbq")]
+
+[node name="rte_close" type="Button" parent="menu/return"]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 900.0
+offset_right = 1275.0
+offset_bottom = 1050.0
+theme = ExtResource("1_wbyk3")
+theme_override_font_sizes/font_size = 60
+text = "back"
+
+[node name="settings" type="Control" parent="menu"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="rect2" type="ColorRect" parent="menu/settings"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.32549, 0, 0.368627, 0.858824)
+
+[node name="settingsInner" parent="menu/settings" instance=ExtResource("3_c2yyq")]
+
+[node name="button_settings_close" type="Button" parent="menu/settings"]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 900.0
+offset_right = 1275.0
+offset_bottom = 1050.0
+theme = ExtResource("1_wbyk3")
+theme_override_font_sizes/font_size = 60
+text = "apply"
+
+[connection signal="pressed" from="menu/default/button_resume" to="." method="_unpause_game"]
+[connection signal="pressed" from="menu/default/button_rte" to="." method="_rte_open"]
+[connection signal="pressed" from="menu/default/button_rte_basic" to="." method="_reload"]
+[connection signal="pressed" from="menu/default/button_settings" to="." method="_settings_open"]
+[connection signal="pressed" from="menu/default/button_controls" to="." method="_controls_open"]
+[connection signal="pressed" from="menu/default/button_main_menu" to="." method="_main_menu"]
+[connection signal="pressed" from="menu/controls/controls_close" to="." method="_controls_close"]
+[connection signal="pressed" from="menu/return/rte_close" to="." method="_rte_close"]
+[connection signal="pressed" from="menu/settings/button_settings_close" to="." method="_settings_close"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://jrv2bbay2iop"]
+
+[ext_resource type="Script" path="res://scripts/nodes/listeners/orderedListener.gd" id="1_by5lf"]
+
+[node name="orderedListener" type="Node3D"]
+script = ExtResource("1_by5lf")

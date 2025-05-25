@@ -1,0 +1,380 @@
+[gd_scene load_steps=7 format=3 uid="uid://bu5qagcvk65p7"]
+
+[ext_resource type="Script" path="res://scripts/ui/buttons.gd" id="2_g7tbn"]
+[ext_resource type="Theme" uid="uid://7w454egydi41" path="res://assets/themes/baseUI.tres" id="2_j4h0f"]
+[ext_resource type="Script" path="res://scripts/ui/dynamicKeybinding.gd" id="3_05lf4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iui8n"]
+content_margin_left = 10.0
+content_margin_top = 12.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+bg_color = Color(0.32549, 0, 0.368627, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ay6tm"]
+content_margin_left = 10.0
+content_margin_top = 12.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+bg_color = Color(0.187176, 0.187176, 0.187176, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hk23p"]
+content_margin_left = 10.0
+content_margin_top = 12.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+bg_color = Color(0.118581, 0.118581, 0.118581, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[node name="settingsInner" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="title" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 200.0
+theme = ExtResource("2_j4h0f")
+text = "settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 1820.0
+offset_bottom = 880.0
+theme = ExtResource("2_j4h0f")
+theme_override_constants/outline_size = 10
+theme_override_constants/side_margin = 0
+theme_override_font_sizes/font_size = 36
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_iui8n")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_ay6tm")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_hk23p")
+current_tab = 1
+
+[node name="Gameplay" type="Panel" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="keys" type="Label" parent="TabContainer/Gameplay"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 47.0
+offset_right = 1121.0
+offset_bottom = 124.0
+theme = ExtResource("2_j4h0f")
+theme_override_font_sizes/font_size = 64
+text = "keys"
+vertical_alignment = 1
+
+[node name="forward_label" type="Label" parent="TabContainer/Gameplay"]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 23.0
+offset_right = 504.0
+offset_bottom = 72.0
+theme = ExtResource("2_j4h0f")
+theme_override_font_sizes/font_size = 45
+text = "forward"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="left_label" type="Label" parent="TabContainer/Gameplay"]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 23.0
+offset_right = 778.0
+offset_bottom = 72.0
+theme = ExtResource("2_j4h0f")
+theme_override_font_sizes/font_size = 45
+text = "left"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back_label" type="Label" parent="TabContainer/Gameplay"]
+layout_mode = 0
+offset_left = 838.0
+offset_top = 23.0
+offset_right = 1067.0
+offset_bottom = 72.0
+theme = ExtResource("2_j4h0f")
+theme_override_font_sizes/font_size = 45
+text = "back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="right_label" type="Label" parent="TabContainer/Gameplay"]
+layout_mode = 0
+offset_left = 1121.0
+offset_top = 23.0
+offset_right = 1350.0
+offset_bottom = 72.0
+theme = ExtResource("2_j4h0f")
+theme_override_font_sizes/font_size = 45
+text = "right"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="autorun" type="CheckBox" parent="TabContainer/Gameplay"]
+layout_mode = 0
+offset_left = 706.0
+offset_top = 232.0
+offset_right = 1190.0
+offset_bottom = 334.0
+theme = ExtResource("2_j4h0f")
+text = " auto run"
+
+[node name="invert_y" type="CheckBox" parent="TabContainer/Gameplay"]
+layout_mode = 0
+offset_left = 1121.0
+offset_top = 232.0
+offset_right = 1605.0
+offset_bottom = 334.0
+theme = ExtResource("2_j4h0f")
+text = " invert y axis"
+
+[node name="show_map_names" type="CheckBox" parent="TabContainer/Gameplay"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 232.0
+offset_right = 667.0
+offset_bottom = 334.0
+theme = ExtResource("2_j4h0f")
+text = " show map names
+"
+
+[node name="walk_speed_label" type="Label" parent="TabContainer/Gameplay"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 330.0
+offset_right = 1121.0
+offset_bottom = 407.0
+theme = ExtResource("2_j4h0f")
+theme_override_font_sizes/font_size = 45
+text = "walk speed"
+vertical_alignment = 1
+
+[node name="walk_speed" type="HSlider" parent="TabContainer/Gameplay"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 360.0
+offset_right = 1068.0
+offset_bottom = 460.0
+theme = ExtResource("2_j4h0f")
+min_value = 1.0
+max_value = 16.0
+value = 12.0
+rounded = true
+
+[node name="mouse_sensitivity_label" type="Label" parent="TabContainer/Gameplay"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 446.0
+offset_right = 1121.0
+offset_bottom = 523.0
+theme = ExtResource("2_j4h0f")
+theme_override_font_sizes/font_size = 45
+text = "mouse sensitivity"
+vertical_alignment = 1
+
+[node name="mouse_sensitivity" type="HSlider" parent="TabContainer/Gameplay"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 476.0
+offset_right = 1068.0
+offset_bottom = 576.0
+theme = ExtResource("2_j4h0f")
+min_value = 5.0
+max_value = 50.0
+value = 20.0
+rounded = true
+
+[node name="view_game_data" type="Button" parent="TabContainer/Gameplay"]
+layout_mode = 0
+offset_left = 1303.0
+offset_top = 543.0
+offset_right = 1699.0
+offset_bottom = 613.0
+theme = ExtResource("2_j4h0f")
+theme_override_font_sizes/font_size = 50
+text = "view game data"
+flat = true
+alignment = 0
+script = ExtResource("2_g7tbn")
+
+[node name="key_forward" type="LineEdit" parent="TabContainer/Gameplay"]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 72.0
+offset_right = 504.25
+offset_bottom = 167.0
+placeholder_text = "W"
+alignment = 1
+max_length = 1
+script = ExtResource("3_05lf4")
+
+[node name="key_left" type="LineEdit" parent="TabContainer/Gameplay"]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 72.0
+offset_right = 778.25
+offset_bottom = 167.0
+placeholder_text = "A"
+alignment = 1
+max_length = 1
+script = ExtResource("3_05lf4")
+
+[node name="key_back" type="LineEdit" parent="TabContainer/Gameplay"]
+layout_mode = 0
+offset_left = 838.0
+offset_top = 72.0
+offset_right = 1067.25
+offset_bottom = 167.0
+placeholder_text = "S"
+alignment = 1
+max_length = 1
+script = ExtResource("3_05lf4")
+
+[node name="key_right" type="LineEdit" parent="TabContainer/Gameplay"]
+layout_mode = 0
+offset_left = 1121.0
+offset_top = 72.0
+offset_right = 1350.25
+offset_bottom = 167.0
+placeholder_text = "D"
+alignment = 1
+max_length = 1
+script = ExtResource("3_05lf4")
+
+[node name="Graphics" type="Panel" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="fullscreen_mode" type="CheckBox" parent="TabContainer/Graphics"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 100.0
+offset_right = 609.0
+offset_bottom = 202.0
+theme = ExtResource("2_j4h0f")
+button_pressed = true
+text = " fullscreen"
+
+[node name="hidden_crosshair" type="CheckBox" parent="TabContainer/Graphics"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 200.0
+offset_right = 609.0
+offset_bottom = 302.0
+theme = ExtResource("2_j4h0f")
+text = " hidden crosshair"
+
+[node name="potato_mode" type="CheckBox" parent="TabContainer/Graphics"]
+layout_mode = 0
+offset_left = 750.0
+offset_top = 200.0
+offset_right = 1391.0
+offset_bottom = 302.0
+theme = ExtResource("2_j4h0f")
+text = " lowest quality"
+
+[node name="bigger_crosshair" type="CheckBox" parent="TabContainer/Graphics"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 300.0
+offset_right = 698.0
+offset_bottom = 402.0
+theme = ExtResource("2_j4h0f")
+text = " bigger crosshair"
+
+[node name="textures" type="OptionButton" parent="TabContainer/Graphics"]
+layout_mode = 0
+offset_left = 979.0
+offset_top = 105.0
+offset_right = 1642.0
+offset_bottom = 182.0
+
+[node name="keys" type="Label" parent="TabContainer/Graphics"]
+layout_mode = 0
+offset_left = 750.0
+offset_top = 100.0
+offset_right = 1806.0
+offset_bottom = 202.0
+theme = ExtResource("2_j4h0f")
+theme_override_font_sizes/font_size = 64
+text = "style"
+vertical_alignment = 1
+
+[node name="res_label" type="Label" parent="TabContainer/Graphics"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 446.0
+offset_right = 1121.0
+offset_bottom = 523.0
+theme = ExtResource("2_j4h0f")
+theme_override_font_sizes/font_size = 45
+text = "resolution scaling"
+vertical_alignment = 1
+
+[node name="resolution_scaling" type="HSlider" parent="TabContainer/Graphics"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 476.0
+offset_right = 1068.0
+offset_bottom = 576.0
+theme = ExtResource("2_j4h0f")
+min_value = 50.0
+value = 100.0
+rounded = true
+
+[node name="Audio" type="Panel" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="music" type="CheckBox" parent="TabContainer/Audio"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 100.0
+offset_right = 609.0
+offset_bottom = 202.0
+theme = ExtResource("2_j4h0f")
+text = " music"
+
+[node name="sound_effects" type="CheckBox" parent="TabContainer/Audio"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 200.0
+offset_right = 329.0
+offset_bottom = 302.0
+theme = ExtResource("2_j4h0f")
+text = " sound effects"
+
+[node name="music_volume" type="HSlider" parent="TabContainer/Audio"]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 100.0
+offset_right = 1653.0
+offset_bottom = 200.0
+theme = ExtResource("2_j4h0f")
+value = 100.0
+rounded = true
+
+[node name="sfx_volume" type="HSlider" parent="TabContainer/Audio"]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 200.0
+offset_right = 1653.0
+offset_bottom = 300.0
+theme = ExtResource("2_j4h0f")
+value = 100.0
+
+[connection signal="pressed" from="TabContainer/Gameplay/view_game_data" to="TabContainer/Gameplay/view_game_data" method="_pressed"]

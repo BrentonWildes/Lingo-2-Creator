@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://otqfcv12uyfl"]
+
+[ext_resource type="Script" path="res://scripts/nodes/listeners/keyHolderChecker.gd" id="1_74ui0"]
+
+[node name="KeyHolderChecker" type="Node"]
+script = ExtResource("1_74ui0")

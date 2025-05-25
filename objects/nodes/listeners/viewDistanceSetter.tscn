@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://duh2ws2mpjuql"]
+
+[ext_resource type="Script" path="res://scripts/nodes/listeners/viewDistanceSetter.gd" id="1_lo5ty"]
+
+[node name="viewDistanceSetter" type="Node3D"]
+script = ExtResource("1_lo5ty")

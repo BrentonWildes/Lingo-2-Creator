@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8mim3pamhocp"]
+
+[ext_resource type="Shader" path="res://assets/shaders/crystal.gdshader" id="1_45w46"]
+[ext_resource type="Script" path="res://scripts/ui/credits.gd" id="1_emffl"]
+[ext_resource type="Theme" uid="uid://7w454egydi41" path="res://assets/themes/baseUI.tres" id="2_3unve"]
+[ext_resource type="Script" path="res://scripts/ui/buttons.gd" id="3_whhwx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sobhl"]
+bg_color = Color(0.168627, 0, 0.247059, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3p8jh"]
+shader = ExtResource("1_45w46")
+shader_parameter/angle = 45.0
+shader_parameter/pos_multiplier = 10.0
+shader_parameter/alpha_clamp = 0.05
+shader_parameter/edge_multiplier = 3.0
+shader_parameter/distance_multiplier = 50.0
+shader_parameter/color_start = Vector4(0.75, 0.75, 0.75, 1)
+shader_parameter/color_end = Vector4(1, 1, 1, 1)
+
+[node name="credits" type="Node2D"]
+script = ExtResource("1_emffl")
+
+[node name="Background" type="Panel" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sobhl")
+
+[node name="CenterContainer" type="CenterContainer" parent="Background"]
+layout_mode = 0
+offset_right = 1633.0
+offset_bottom = 542.0
+
+[node name="title" type="Label" parent="Background/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("2_3unve")
+theme_override_colors/font_color = Color(0.225464, 0.000103589, 0.267198, 1)
+theme_override_font_sizes/font_size = 500
+text = "̓"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shader" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_3p8jh")
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="title" type="Label" parent="Shader"]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 800.0
+theme = ExtResource("2_3unve")
+text = "the end!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="Shader"]
+layout_mode = 0
+offset_top = 540.0
+offset_right = 1920.0
+offset_bottom = 880.0
+
+[node name="label" type="Label" parent="Shader/CenterContainer2"]
+layout_mode = 2
+theme = ExtResource("2_3unve")
+theme_override_font_sizes/font_size = 55
+text = "Lingo 2 was made by Brenton Wildes
+
+Thanks for playing! I hope you had fun!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="return" type="Button" parent="."]
+offset_top = 880.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = ExtResource("2_3unve")
+text = "return"
+flat = true
+script = ExtResource("3_whhwx")
+
+[connection signal="pressed" from="return" to="return" method="_pressed"]

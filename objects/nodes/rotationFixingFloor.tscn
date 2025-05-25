@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxfeb0y8qeesg"]
+
+[ext_resource type="Script" path="res://scripts/nodes/rotationFixingFloor.gd" id="1_bhlqa"]
+[ext_resource type="Material" path="res://assets/materials/transparent/transparentBlack.material" id="1_r5f4f"]
+[ext_resource type="Material" path="res://assets/materials/cobalt.material" id="2_pgbid"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b56vn"]
+material = ExtResource("1_r5f4f")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i12xc"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_vpqy0"]
+material = ExtResource("2_pgbid")
+size = Vector3(0.5, 1, 0.5)
+
+[node name="RotationFixingFloor" type="Area3D"]
+script = ExtResource("1_bhlqa")
+
+[node name="Locator" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_b56vn")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_i12xc")
+
+[node name="Arrow" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0)
+mesh = SubResource("PrismMesh_vpqy0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

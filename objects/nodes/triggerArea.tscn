@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://be2pbuksagjd5"]
+
+[ext_resource type="Script" path="res://scripts/nodes/triggerArea.gd" id="1_ly5a5"]
+[ext_resource type="Material" uid="uid://5glc6a4mnqok" path="res://assets/materials/glass.material" id="2_5jwb1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0vakb"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cjacp"]
+material = ExtResource("2_5jwb1")
+size = Vector3(2, 2, 2)
+
+[node name="triggerArea" type="Node3D"]
+script = ExtResource("1_ly5a5")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_0vakb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_cjacp")

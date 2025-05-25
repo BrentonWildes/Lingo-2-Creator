@@ -1,0 +1,143 @@
+[gd_scene load_steps=21 format=3 uid="uid://bsuxhe3e2o623"]
+
+[ext_resource type="Script" path="res://scripts/nodes/panel.gd" id="1_qtye3"]
+[ext_resource type="Material" uid="uid://bpbogfovdtyxn" path="res://assets/materials/black.material" id="2_emfjq"]
+[ext_resource type="Material" uid="uid://bu3opki5nq610" path="res://assets/materials/gray.material" id="3_etvbw"]
+[ext_resource type="FontFile" uid="uid://575cvnh0fjvl" path="res://assets/fonts/Lingo.ttf" id="4_fqj7m"]
+[ext_resource type="Material" uid="uid://b1we3m48j2hex" path="res://assets/materials/blue.material" id="5_mqty4"]
+[ext_resource type="Material" uid="uid://w722aifhluua" path="res://assets/materials/blueLight.material" id="6_caw1t"]
+[ext_resource type="Material" uid="uid://crkmemst8tu7" path="res://assets/materials/blackMatte.material" id="7_ereag"]
+[ext_resource type="ArrayMesh" uid="uid://0vjc0o1vxyh0" path="res://assets/models/custom/murder/ModernistLectern.obj" id="8_ib3xb"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_coxav"]
+material = ExtResource("3_etvbw")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aoocd"]
+size = Vector3(1, 1, 0.01)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8l48l"]
+size = Vector3(1, 1, 0.01)
+
+[sub_resource type="QuadMesh" id="QuadMesh_8s1w2"]
+material = ExtResource("5_mqty4")
+
+[sub_resource type="QuadMesh" id="QuadMesh_5i0nc"]
+material = ExtResource("6_caw1t")
+
+[sub_resource type="QuadMesh" id="QuadMesh_qh4x0"]
+material = ExtResource("7_ereag")
+size = Vector2(1.05, 1.05)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_57icc"]
+points = PackedVector3Array(-0.51541, -0.0215103, -0.51541, -0.51541, -0.0215103, 0.501671, 0.501671, -0.0215103, -0.51541, -0.296396, 0.212086, -0.268779, 0.501671, -0.0215103, 0.501671, 0.409182, 0.132593, -0.422921, -0.295096, 0.211591, 0.281356, 0.280729, 0.211352, -0.267037, -0.484547, 0.0401309, 0.501671, -0.392058, 0.0401309, -0.51541, 0.280729, 0.211352, 0.280729, 0.501671, 0.0401309, -0.51541, 0.45493, 0.0457965, 0.45493, 0.316693, 0.132593, -0.422921)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h7hqq"]
+points = PackedVector3Array(-0.0839094, 0.903109, 0.100951, -0.299666, 0.225055, -0.299666, -0.275428, 0.25312, 0.261688, 0.285926, 0.225055, -0.299666, 0.285926, 0.225055, 0.285926, 0.0701697, 0.903109, -0.0839094, -0.14553, 0.903109, -0.0839094, -0.299666, 0.286714, 0.285926, 0.285926, 0.286714, 0.285926, 0.0701697, 0.903109, 0.0701697, 0.285926, 0.255918, -0.299666, -0.14553, 0.903109, 0.100951, -0.299666, 0.255918, -0.299666, 0.285926, 0.286714, -0.268827, -0.299666, 0.286714, -0.268827, 0.0701697, 0.872246, 0.100951)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k07xh"]
+points = PackedVector3Array(-0.187541, 1.41595, -0.0950047, 0.224285, 1.36549, 0.47085, -0.207162, 1.79691, 0.47085, -0.207162, 1.79691, -0.48459, 0.224285, 1.3346, -0.48459, -0.422948, 1.88934, 0.47085, -0.422948, 1.92012, -0.48459, -0.168053, 1.36788, 0.0893198, 0.162641, 1.3346, 0.47085, -0.361304, 1.95101, 0.47085, 0.162641, 1.3346, -0.48459, -0.361304, 1.95101, -0.48459, 0.224285, 1.36549, -0.48459, -0.422948, 1.88934, -0.453633, 0.224285, 1.3346, 0.47085, -0.162526, 1.38999, -0.0952465, -0.33045, 1.79691, 0.47085, -0.397606, 1.92687, 0.433439, -0.268806, 1.73518, -0.453633)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tf808"]
+points = PackedVector3Array(-0.145539, 1.30373, -0.114724, 0.1061, 1.34248, 0.200828, 0.0393128, 1.33456, 0.193464, 0.0701304, 0.903151, 0.0701184, 0.112738, 1.35281, -0.224156, -0.145539, 0.903151, -0.0838973, -0.176383, 1.33456, 0.100984, -0.136566, 0.921096, 0.0637134, 0.0701304, 0.903151, -0.0838973, -0.176383, 1.33456, -0.0838973, 0.101002, 1.14962, 0.100984, -0.176383, 1.2729, 0.100984, 0.0393128, 1.30373, 0.193464, 0.101002, 1.14962, -0.114724, -0.176383, 1.24207, -0.0838973, 0.0701304, 1.30373, -0.207204, -0.176383, 1.24207, 0.0701184)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_q3cfv"]
+points = PackedVector3Array(0.101002, 1.30374, -0.237874, 0.440029, 1.18052, 0.47085, 0.4092, 1.21133, 0.47085, 0.440029, 1.18052, -0.48459, 0.101002, 1.21133, 0.131732, 0.255151, 1.3346, 0.47085, 0.378337, 1.11885, -0.48459, 0.255151, 1.3346, -0.48459, 0.378337, 1.11885, 0.47085, 0.101002, 1.3346, 0.25509, 0.440029, 1.11885, 0.47085, 0.193491, 1.30374, 0.47085, 0.101002, 1.21133, -0.145379, 0.193491, 1.30374, -0.48459, 0.440029, 1.11885, -0.48459, 0.101002, 1.3346, -0.237874, 0.378337, 1.24212, -0.48459, 0.378337, 1.24212, 0.47085, 0.193491, 1.3346, -0.48459, 0.193491, 1.3346, 0.47085, 0.101002, 1.30374, 0.25509)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hffio"]
+size = Vector3(0.01, 0.01, 0.01)
+
+[node name="ModernHolder" type="Node3D"]
+script = ExtResource("1_qtye3")
+symbol = ""
+pedestal_material = ExtResource("2_emfjq")
+
+[node name="Hinge" type="Node3D" parent="."]
+transform = Transform3D(1, 3.30758e-14, 3.38592e-14, -4.73159e-14, 0.717993, 0.696052, -1.28814e-15, -0.696052, 0.717993, 0, -0.13007, -0.10015)
+
+[node name="quad" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 8.47033e-22, -8.47033e-22, 1, 2.98023e-08, -8.47033e-22, -2.98023e-08, 1, 0, 0.5, 0.51)
+mesh = SubResource("QuadMesh_coxav")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="Hinge/quad"]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/quad/Area3D"]
+shape = SubResource("BoxShape3D_aoocd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hinge/quad"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/quad/StaticBody3D"]
+shape = SubResource("BoxShape3D_8l48l")
+
+[node name="clue" type="Label3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.52)
+text = "clue"
+font = ExtResource("4_fqj7m")
+outline_size = 3
+
+[node name="symbol" type="Label3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.52)
+text = "?"
+font = ExtResource("4_fqj7m")
+outline_size = 3
+
+[node name="answer" type="Label3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.52)
+text = "----"
+font = ExtResource("4_fqj7m")
+outline_size = 3
+
+[node name="glow" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.515)
+visible = false
+mesh = SubResource("QuadMesh_8s1w2")
+
+[node name="glow_proxies" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.515)
+visible = false
+mesh = SubResource("QuadMesh_5i0nc")
+
+[node name="outline" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.505)
+mesh = SubResource("QuadMesh_qh4x0")
+
+[node name="proxy" type="Label3D" parent="Hinge"]
+transform = Transform3D(1, -8.21497e-15, 1.07177e-14, 1.09071e-14, 0.959304, -0.282375, -7.96185e-15, 0.282375, 0.959304, 2.8895e-14, -0.28472, -0.140243)
+visible = false
+text = "."
+font = ExtResource("4_fqj7m")
+outline_size = 3
+
+[node name="panelHolder" type="Node3D" parent="Hinge"]
+transform = Transform3D(-4.31257e-08, -1.90653e-08, -1.15, -0.707107, 0.721249, 1.98693e-08, 0.707107, 0.721249, -5.02681e-08, -0.00474453, -0.608095, -0.619731)
+
+[node name="Hinge" type="Node3D" parent="Hinge/panelHolder"]
+transform = Transform3D(1, 0, 3.38813e-21, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge/panelHolder/Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
+mesh = ExtResource("8_ib3xb")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("2_emfjq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hinge/panelHolder/Hinge/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/panelHolder/Hinge/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_57icc")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Hinge/panelHolder/Hinge/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_h7hqq")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Hinge/panelHolder/Hinge/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_k07xh")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Hinge/panelHolder/Hinge/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_tf808")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Hinge/panelHolder/Hinge/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_q3cfv")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hinge/panelHolder/Hinge"]
+visible = false
+mesh = SubResource("BoxMesh_hffio")

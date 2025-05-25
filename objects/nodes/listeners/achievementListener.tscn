@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq7v5jq2s8qno"]
+
+[ext_resource type="Script" path="res://scripts/nodes/listeners/achievementListener.gd" id="1_jgl5l"]
+
+[node name="achievementListener" type="Node3D"]
+script = ExtResource("1_jgl5l")

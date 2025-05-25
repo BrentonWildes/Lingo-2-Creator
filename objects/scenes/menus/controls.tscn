@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://recx3nt478ip"]
+
+[ext_resource type="Script" path="res://scripts/ui/credits.gd" id="1_45pb7"]
+[ext_resource type="Theme" uid="uid://7w454egydi41" path="res://assets/themes/baseUI.tres" id="2_wextu"]
+[ext_resource type="Shader" path="res://assets/shaders/crystal.gdshader" id="3_6ir6e"]
+[ext_resource type="PackedScene" uid="uid://dxibmlb6mused" path="res://objects/scenes/menus/controls_inner.tscn" id="3_hei1n"]
+[ext_resource type="Script" path="res://scripts/ui/buttons.gd" id="4_5xln7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sobhl"]
+bg_color = Color(0.168627, 0, 0.247059, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3p8jh"]
+shader = ExtResource("3_6ir6e")
+shader_parameter/angle = 45.0
+shader_parameter/pos_multiplier = 10.0
+shader_parameter/alpha_clamp = 0.05
+shader_parameter/edge_multiplier = 3.0
+shader_parameter/distance_multiplier = 50.0
+shader_parameter/color_start = Vector4(0.75, 0.75, 0.75, 1)
+shader_parameter/color_end = Vector4(1, 1, 1, 1)
+
+[node name="controls" type="Node2D"]
+script = ExtResource("1_45pb7")
+
+[node name="Background" type="Panel" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sobhl")
+
+[node name="Shader" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_3p8jh")
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="controlsInner" parent="Shader" instance=ExtResource("3_hei1n")]
+
+[node name="return" type="Button" parent="Shader"]
+offset_top = 880.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = ExtResource("2_wextu")
+text = "return"
+flat = true
+script = ExtResource("4_5xln7")
+
+[connection signal="pressed" from="Shader/return" to="Shader/return" method="_pressed"]

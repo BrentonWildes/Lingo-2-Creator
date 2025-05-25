@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ja6y6viiy5dp"]
+
+[ext_resource type="Script" path="res://scripts/nodes/listeners/gravityListener.gd" id="1_rp2qv"]
+
+[node name="gravityListener" type="Node3D"]
+script = ExtResource("1_rp2qv")

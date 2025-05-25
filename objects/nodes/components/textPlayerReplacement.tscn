@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dokfr82ucfcvk"]
+
+[ext_resource type="Script" path="res://scripts/components/textPlayerReplacement.gd" id="1_hq3jt"]
+
+[node name="textPlayerReplacement" type="Node"]
+script = ExtResource("1_hq3jt")

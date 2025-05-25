@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cppdjbfps7ryx"]
+
+[ext_resource type="Script" path="res://scripts/nodes/door.gd" id="1_t7bqn"]
+[ext_resource type="MeshLibrary" uid="uid://bsvdqt5tu0ggw" path="res://assets/blocks/meshlibs/blocks.tres" id="2_k8e3i"]
+
+[node name="Owl" type="Node3D"]
+script = ExtResource("1_t7bqn")
+
+[node name="Hinge" type="Node3D" parent="."]
+
+[node name="GridMap" type="GridMap" parent="Hinge"]
+mesh_library = ExtResource("2_k8e3i")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65531, 4, 15, 65531, 3, 15, 65531, 2, 15, 65532, 4, 15, 65535, 4, 15, 2, 4, 15, 3, 4, 15, 4, 4, 15, 3, 3, 15, 4, 3, 15, 4, 2, 15, 3, 2, 15, 4, 1, 15, 4, 0, 15, 4, 65533, 15, 4, 65532, 15, 3, 65532, 15, 3, 65531, 15, 4, 65531, 15, 65531, 65531, 15, 1, 65531, 15, 0, 65531, 15, 65535, 65531, 15, 65534, 65531, 15, 65533, 65531, 15, 65531, 65532, 15)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)

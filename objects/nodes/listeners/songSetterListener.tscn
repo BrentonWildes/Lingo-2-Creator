@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://vojw7677c7qk"]
+
+[ext_resource type="Script" path="res://scripts/nodes/listeners/songSetterListener.gd" id="1_r3jie"]
+
+[node name="songSetterListener" type="Node3D"]
+script = ExtResource("1_r3jie")

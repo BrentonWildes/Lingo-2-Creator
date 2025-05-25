@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnrgli3mt8y7j"]
+
+[ext_resource type="Script" path="res://scripts/nodes/panelHolder.gd" id="1_v5usf"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_t0r7i"]
+left_to_right = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_duftr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kcxf5"]
+
+[node name="panelHolder" type="Node3D"]
+script = ExtResource("1_v5usf")
+
+[node name="Hinge" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 5.96047e-08, 0, -5.96047e-08, 1, 0, 0, 0, 1.4, 0, 1.7, 0)
+mesh = SubResource("PrismMesh_t0r7i")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hinge/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_duftr")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 7.03335e-08, 0, -5.96047e-08, 1.18, 0, 0, 0, 1.4, 0, 0.61, 0)
+mesh = SubResource("BoxMesh_kcxf5")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hinge/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("BoxShape3D_duftr")

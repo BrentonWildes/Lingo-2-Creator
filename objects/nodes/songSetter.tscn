@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6n8jkqlu1kdw"]
+
+[ext_resource type="Script" path="res://scripts/nodes/songSetter.gd" id="1_tm8f7"]
+
+[node name="songSetter" type="Node3D"]
+script = ExtResource("1_tm8f7")

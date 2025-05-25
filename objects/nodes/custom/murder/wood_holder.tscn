@@ -1,0 +1,128 @@
+[gd_scene load_steps=19 format=3 uid="uid://deqdpun105s02"]
+
+[ext_resource type="Script" path="res://scripts/nodes/panel.gd" id="1_h3uvk"]
+[ext_resource type="Material" uid="uid://b6s40ebquerwc" path="res://assets/materials/chocolate.material" id="2_cbki3"]
+[ext_resource type="Material" uid="uid://bu3opki5nq610" path="res://assets/materials/gray.material" id="3_amvqx"]
+[ext_resource type="FontFile" uid="uid://575cvnh0fjvl" path="res://assets/fonts/Lingo.ttf" id="4_pdh5r"]
+[ext_resource type="Material" uid="uid://b1we3m48j2hex" path="res://assets/materials/blue.material" id="5_d3dgd"]
+[ext_resource type="Material" uid="uid://w722aifhluua" path="res://assets/materials/blueLight.material" id="6_d0lh7"]
+[ext_resource type="Material" uid="uid://crkmemst8tu7" path="res://assets/materials/blackMatte.material" id="7_jt7jd"]
+[ext_resource type="ArrayMesh" uid="uid://6j872ei7pfi2" path="res://assets/models/custom/murder/WoodLectern.obj" id="8_uqp3e"]
+[ext_resource type="Material" uid="uid://btupeiuoe2woy" path="res://assets/materials/brown.material" id="9_47n57"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_coxav"]
+material = ExtResource("3_amvqx")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aoocd"]
+size = Vector3(1, 1, 0.01)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8l48l"]
+size = Vector3(1, 1, 0.01)
+
+[sub_resource type="QuadMesh" id="QuadMesh_8s1w2"]
+material = ExtResource("5_d3dgd")
+
+[sub_resource type="QuadMesh" id="QuadMesh_5i0nc"]
+material = ExtResource("6_d0lh7")
+
+[sub_resource type="QuadMesh" id="QuadMesh_qh4x0"]
+material = ExtResource("7_jt7jd")
+size = Vector2(1.05, 1.05)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dbtgx"]
+points = PackedVector3Array(0.369197, 0.133777, 0.369197, -0.530062, -0.0153619, -0.530062, -0.530062, -0.0153619, 0.545271, 0.545271, -0.0153619, -0.530062, -0.370863, 0.13156, -0.370863, 0.545271, -0.0153619, 0.545271, -0.437854, 0.107521, 0.453064, 0.453064, 0.107521, -0.437854, 0.545271, 0.0153739, 0.545271, 0.358113, 0.13156, -0.370863, -0.370863, 0.13156, 0.358113, 0.453064, 0.107521, 0.453064, 0.545271, 0.0153739, -0.530062, -0.530062, 0.0153739, 0.545271)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0tkgt"]
+points = PackedVector3Array(-0.346472, 1.88033, 0.446619, -0.393946, 1.92221, 0.468624, -0.392868, 0.0997598, 0.408005, 0.408046, 0.0998337, 0.407974, -0.367, 0.160803, -0.366933, -0.397061, 1.92902, -0.456991, 0.422313, 1.09047, -0.468521, 0.418829, 1.14379, 0.447104, 0.408046, 0.0998337, -0.392765, -0.40806, 1.25941, -0.43664, 0.418829, 1.14379, -0.431894, -0.407963, 1.80386, 0.451745, -0.0636331, 1.20149, 0.450042, -0.407963, 1.80386, -0.436535, -0.406925, 1.54476, 0.450635)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hffio"]
+size = Vector3(0.01, 0.01, 0.01)
+
+[node name="WoodHolder" type="Node3D"]
+script = ExtResource("1_h3uvk")
+symbol = ""
+pedestal_material = ExtResource("2_cbki3")
+
+[node name="Hinge" type="Node3D" parent="."]
+transform = Transform3D(1, 3.30758e-14, 3.38592e-14, -4.73159e-14, 0.717993, 0.696052, -1.28814e-15, -0.696052, 0.717993, 0, -0.13007, -0.10015)
+
+[node name="quad" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 8.47033e-22, -8.47033e-22, 1, 2.98023e-08, -8.47033e-22, -2.98023e-08, 1, 0, 0.5, 0.51)
+mesh = SubResource("QuadMesh_coxav")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="Hinge/quad"]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/quad/Area3D"]
+shape = SubResource("BoxShape3D_aoocd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hinge/quad"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/quad/StaticBody3D"]
+shape = SubResource("BoxShape3D_8l48l")
+
+[node name="clue" type="Label3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.52)
+text = "clue"
+font = ExtResource("4_pdh5r")
+outline_size = 3
+
+[node name="symbol" type="Label3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.52)
+text = "?"
+font = ExtResource("4_pdh5r")
+outline_size = 3
+
+[node name="answer" type="Label3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.52)
+text = "----"
+font = ExtResource("4_pdh5r")
+outline_size = 3
+
+[node name="glow" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.515)
+visible = false
+mesh = SubResource("QuadMesh_8s1w2")
+
+[node name="glow_proxies" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.515)
+visible = false
+mesh = SubResource("QuadMesh_5i0nc")
+
+[node name="outline" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.505)
+mesh = SubResource("QuadMesh_qh4x0")
+
+[node name="proxy" type="Label3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.68007e-22, -0.036972, 0.52)
+visible = false
+text = "."
+font = ExtResource("4_pdh5r")
+outline_size = 3
+
+[node name="panelHolder" type="Node3D" parent="Hinge"]
+transform = Transform3D(-4.31257e-08, -1.90653e-08, -1.15, -0.707107, 0.721249, 1.98693e-08, 0.707107, 0.721249, -5.02681e-08, -0.00474453, -0.608095, -0.619731)
+
+[node name="Hinge" type="Node3D" parent="Hinge/panelHolder"]
+transform = Transform3D(1, 0, 3.38813e-21, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge/panelHolder/Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
+mesh = ExtResource("8_uqp3e")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("2_cbki3")
+surface_material_override/1 = ExtResource("9_47n57")
+surface_material_override/2 = ExtResource("2_cbki3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hinge/panelHolder/Hinge/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/panelHolder/Hinge/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_dbtgx")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Hinge/panelHolder/Hinge/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_0tkgt")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hinge/panelHolder/Hinge"]
+visible = false
+mesh = SubResource("BoxMesh_hffio")

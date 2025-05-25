@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca1aln1owu4k1"]
+
+[ext_resource type="Texture2D" uid="uid://dfwr4pgu3h2th" path="res://assets/images/ui/loading.png" id="1_lathh"]
+
+[node name="LoadIndicator" type="Sprite2D"]
+texture_filter = 1
+position = Vector2(1792, 952)
+texture = ExtResource("1_lathh")

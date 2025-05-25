@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://c34kl6ua3ta6n"]
+
+[ext_resource type="Material" path="res://assets/materials/transparent/transparentRedBright.material" id="2_7s680"]
+[ext_resource type="Material" path="res://assets/materials/transparent/transparentPurple.material" id="3_krilb"]
+[ext_resource type="Material" path="res://assets/materials/transparent/transparentOrange.material" id="4_gxmyc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j3073"]
+size = Vector3(4, 4, 0.01)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fheaa"]
+material = ExtResource("2_7s680")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yywwi"]
+material = ExtResource("3_krilb")
+size = Vector2(1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g33g0"]
+material = ExtResource("4_gxmyc")
+size = Vector2(1, 1)
+
+[node name="Window" type="Node3D"]
+
+[node name="Hinge" type="Node3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="Hinge"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/Area3D"]
+shape = SubResource("BoxShape3D_j3073")
+
+[node name="Red" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_fheaa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.5, 1.5, 0)
+mesh = SubResource("PlaneMesh_yywwi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.5, 1.5, 0)
+mesh = SubResource("PlaneMesh_yywwi")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.5, 0.5, 0)
+mesh = SubResource("PlaneMesh_yywwi")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.5, -1.5, 0)
+mesh = SubResource("PlaneMesh_yywwi")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.5, -0.5, 0)
+mesh = SubResource("PlaneMesh_yywwi")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.5, -1.5, 0)
+mesh = SubResource("PlaneMesh_yywwi")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.5, 1.5, 0)
+mesh = SubResource("PlaneMesh_g33g0")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.5, 1.5, 0)
+mesh = SubResource("PlaneMesh_g33g0")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.5, 0.5, 0)
+mesh = SubResource("PlaneMesh_g33g0")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.5, -1.5, 0)
+mesh = SubResource("PlaneMesh_g33g0")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.5, -1.5, 0)
+mesh = SubResource("PlaneMesh_g33g0")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.5, -0.5, 0)
+mesh = SubResource("PlaneMesh_g33g0")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://k6l3rym4id87"]
+
+[ext_resource type="Script" path="res://scripts/nodes/listeners/unlockSetterListener.gd" id="1_n3vqm"]
+
+[node name="unlockSetterListener" type="Node3D"]
+script = ExtResource("1_n3vqm")

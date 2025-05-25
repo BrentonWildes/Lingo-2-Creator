@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://0vjc0o1vxyh0"
+path="res://.godot/imported/ModernistLectern.obj-b91b8b928790681d6415755178eaca81.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ModernistLectern.obj-b91b8b928790681d6415755178eaca81.mesh"]
+
+source_file="res://assets/models/custom/murder/ModernistLectern.obj"
+dest_files=["res://.godot/imported/ModernistLectern.obj-b91b8b928790681d6415755178eaca81.mesh", "res://.godot/imported/ModernistLectern.obj-b91b8b928790681d6415755178eaca81.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

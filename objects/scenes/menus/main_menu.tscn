@@ -1,0 +1,162 @@
+[gd_scene load_steps=9 format=3 uid="uid://u6owkn5loy0i"]
+
+[ext_resource type="Script" path="res://scripts/ui/mainMenu.gd" id="1_1wxr7"]
+[ext_resource type="Shader" path="res://assets/shaders/crystal.gdshader" id="1_p80x7"]
+[ext_resource type="Theme" uid="uid://7w454egydi41" path="res://assets/themes/baseUI.tres" id="2_g4bvn"]
+[ext_resource type="Script" path="res://scripts/ui/buttons.gd" id="3_xjkmo"]
+[ext_resource type="Texture2D" uid="uid://ij3s5117l0p8" path="res://assets/images/ui/discord.png" id="4_0gqg2"]
+[ext_resource type="PackedScene" uid="uid://dokfr82ucfcvk" path="res://objects/nodes/components/textPlayerReplacement.tscn" id="4_s3vgq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sobhl"]
+bg_color = Color(0.168627, 0, 0.247059, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3p8jh"]
+shader = ExtResource("1_p80x7")
+shader_parameter/angle = 45.0
+shader_parameter/pos_multiplier = 10.0
+shader_parameter/alpha_clamp = 0.05
+shader_parameter/edge_multiplier = 3.0
+shader_parameter/distance_multiplier = 50.0
+shader_parameter/color_start = Vector4(0.75, 0.75, 0.75, 1)
+shader_parameter/color_end = Vector4(1, 1, 1, 1)
+
+[node name="main_menu" type="Node2D"]
+script = ExtResource("1_1wxr7")
+
+[node name="background" type="Panel" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_sobhl")
+
+[node name="shader" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_3p8jh")
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="new_game" type="Button" parent="."]
+offset_left = 200.0
+offset_top = 500.0
+offset_right = 395.0
+offset_bottom = 601.0
+focus_neighbor_top = NodePath("../quit")
+focus_neighbor_bottom = NodePath("../player_select")
+focus_next = NodePath("../player_select")
+focus_previous = NodePath("../quit")
+theme = ExtResource("2_g4bvn")
+text = "PLAY"
+flat = true
+alignment = 0
+script = ExtResource("3_xjkmo")
+
+[node name="player_select" type="Button" parent="."]
+offset_left = 200.0
+offset_top = 600.0
+offset_right = 1720.0
+offset_bottom = 701.0
+focus_neighbor_top = NodePath("../new_game")
+focus_neighbor_right = NodePath("../level_select")
+focus_next = NodePath("../level_select")
+focus_previous = NodePath("../new_game")
+theme = ExtResource("2_g4bvn")
+text = "PLAYER SELECTION"
+flat = true
+alignment = 0
+script = ExtResource("3_xjkmo")
+
+[node name="level_select" type="Button" parent="."]
+offset_left = 200.0
+offset_top = 700.0
+offset_right = 1720.0
+offset_bottom = 802.0
+focus_neighbor_top = NodePath("../player_select")
+focus_neighbor_bottom = NodePath("../settings")
+focus_next = NodePath("../settings")
+focus_previous = NodePath("../player_select")
+theme = ExtResource("2_g4bvn")
+text = "LEVEL SELECTION"
+flat = true
+alignment = 0
+script = ExtResource("3_xjkmo")
+
+[node name="settings" type="Button" parent="."]
+offset_left = 200.0
+offset_top = 800.0
+offset_right = 1720.0
+offset_bottom = 902.0
+focus_neighbor_top = NodePath("../level_select")
+focus_neighbor_bottom = NodePath("../quit")
+focus_next = NodePath("../quit")
+focus_previous = NodePath("../level_select")
+theme = ExtResource("2_g4bvn")
+text = "settings"
+flat = true
+alignment = 0
+script = ExtResource("3_xjkmo")
+
+[node name="quit" type="Button" parent="."]
+offset_left = 200.0
+offset_top = 900.0
+offset_right = 1720.0
+offset_bottom = 1002.0
+focus_neighbor_top = NodePath("../settings")
+focus_neighbor_bottom = NodePath("../new_game")
+focus_next = NodePath("../new_game")
+focus_previous = NodePath("../settings")
+theme = ExtResource("2_g4bvn")
+text = "QUIT"
+flat = true
+alignment = 0
+script = ExtResource("3_xjkmo")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 420.0
+offset_top = 532.0
+offset_right = 914.0
+offset_bottom = 618.0
+theme = ExtResource("2_g4bvn")
+theme_override_font_sizes/font_size = 50
+text = "as {{player}}"
+
+[node name="textPlayerReplacement" parent="Label" instance=ExtResource("4_s3vgq")]
+
+[node name="title" type="Label" parent="."]
+offset_right = 1920.0
+offset_bottom = 200.0
+theme = ExtResource("2_g4bvn")
+text = "lingo 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="title2" type="Label" parent="."]
+visible = false
+offset_top = 80.0
+offset_right = 1920.0
+offset_bottom = 280.0
+theme = ExtResource("2_g4bvn")
+theme_override_font_sizes/font_size = 50
+text = "the demo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="discord" type="Button" parent="."]
+offset_left = 1720.0
+offset_top = 875.0
+offset_right = 1845.0
+offset_bottom = 1010.0
+theme = ExtResource("2_g4bvn")
+icon = ExtResource("4_0gqg2")
+flat = true
+alignment = 0
+script = ExtResource("3_xjkmo")
+
+[connection signal="pressed" from="new_game" to="new_game" method="_pressed"]
+[connection signal="pressed" from="player_select" to="player_select" method="_pressed"]
+[connection signal="pressed" from="level_select" to="level_select" method="_pressed"]
+[connection signal="pressed" from="settings" to="settings" method="_pressed"]
+[connection signal="pressed" from="quit" to="quit" method="_pressed"]
+[connection signal="pressed" from="discord" to="discord" method="_pressed"]

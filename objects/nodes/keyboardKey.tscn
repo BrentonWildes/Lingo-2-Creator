@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://ci8nf5syed5ym"]
+
+[ext_resource type="Script" path="res://scripts/ui/keyboardKey.gd" id="1_vo50g"]
+[ext_resource type="Texture2D" uid="uid://cpqqr3bmhuj6y" path="res://assets/images/ui/keyboard/key_background_cyan.png" id="1_y44c5"]
+[ext_resource type="Texture2D" uid="uid://ch228xa04ba1w" path="res://assets/images/ui/keyboard/selection.png" id="2_amy1n"]
+[ext_resource type="Texture2D" uid="uid://cqkaevg8ivj4i" path="res://assets/images/ui/keyboard/key_background_broken.png" id="2_qkjgk"]
+[ext_resource type="Theme" uid="uid://7w454egydi41" path="res://assets/themes/baseUI.tres" id="3_02ysq"]
+[ext_resource type="Texture2D" uid="uid://brlqptakt8ovh" path="res://assets/images/ui/keyboard/key_background_purple.png" id="4_y1s76"]
+
+[node name="keyboard_key" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vo50g")
+
+[node name="background_0" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_filter = 2
+texture = ExtResource("2_qkjgk")
+
+[node name="background_1" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_filter = 2
+texture = ExtResource("4_y1s76")
+
+[node name="background_2" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_filter = 2
+texture = ExtResource("1_y44c5")
+
+[node name="selected" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_filter = 2
+texture = ExtResource("2_amy1n")
+
+[node name="key" type="Label" parent="."]
+visible = false
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 6.0
+offset_right = 96.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_02ysq")
+text = "a"
+horizontal_alignment = 1
+vertical_alignment = 1

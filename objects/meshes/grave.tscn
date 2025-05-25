@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dae3lpqm6hmpq"]
+
+[ext_resource type="Script" path="res://scripts/nodes/door.gd" id="1_x3p2a"]
+[ext_resource type="MeshLibrary" uid="uid://bsvdqt5tu0ggw" path="res://assets/blocks/meshlibs/blocks.tres" id="2_iowbh"]
+[ext_resource type="Material" path="res://assets/materials/transparent/transparentRed.material" id="3_mbq2e"]
+[ext_resource type="Material" path="res://assets/materials/transparent/transparentBlack.material" id="4_hltj0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xkhq1"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="Grave" type="Node3D"]
+script = ExtResource("1_x3p2a")
+
+[node name="Hinge" type="Node3D" parent="."]
+
+[node name="GridMap" type="GridMap" parent="Hinge"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh_library = ExtResource("2_iowbh")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65534, 65535, 10, 65535, 65535, 10, 0, 65535, 10, 1, 65535, 10, 65534, 65534, 10, 131070, 65534, 10, 196606, 65534, 10, 262142, 65534, 10, 65535, 65534, 10, 131071, 65534, 10, 196607, 65534, 10, 262143, 65534, 10, 0, 65534, 10, 65536, 65534, 10, 131072, 65534, 10, 196608, 65534, 10, 1, 65534, 10, 65537, 65534, 10, 131073, 65534, 10, 196609, 65534, 10, 65533, 65534, 10, 65533, 65535, 10, 131069, 65534, 10, 131069, 65535, 10, 196605, 65534, 10, 196605, 65535, 10, 262141, 65534, 10, 262141, 65535, 10, 2, 65534, 10, 2, 65535, 10, 65538, 65534, 10, 65538, 65535, 10, 131074, 65534, 10, 131074, 65535, 10, 196610, 65534, 10, 196610, 65535, 10, 327677, 65535, 10, 327677, 65534, 10, 327678, 65534, 10, 327679, 65534, 10, 262144, 65534, 10, 262145, 65534, 10, 262146, 65534, 10, 262146, 65535, 10, 393213, 65534, 10, 393213, 65535, 10, 393214, 65534, 10, 393214, 65535, 10, 393215, 65534, 10, 393215, 65535, 10, 327680, 65534, 10, 327680, 65535, 10, 327681, 65534, 10, 327681, 65535, 10, 327682, 65534, 10, 327682, 65535, 10, 458749, 65534, 10, 458749, 65535, 10, 524285, 65534, 10, 524285, 65535, 10, 458750, 65534, 10, 524286, 65534, 10, 524286, 65535, 10, 458751, 65534, 10, 458751, 65535, 10, 524287, 65534, 10, 524287, 65535, 10, 393216, 65534, 10, 393216, 65535, 10, 458752, 65534, 10, 458752, 65535, 10, 393217, 65534, 10, 458753, 65534, 10, 458753, 65535, 10, 393218, 65534, 10, 393218, 65535, 10, 458754, 65534, 10, 458754, 65535, 10)
+}
+metadata/_editor_floor_ = Vector3(0, 6, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 3.25, -0.25)
+mesh = SubResource("BoxMesh_xkhq1")
+surface_material_override/0 = ExtResource("3_mbq2e")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 3.25, -0.25)
+mesh = SubResource("BoxMesh_xkhq1")
+surface_material_override/0 = ExtResource("3_mbq2e")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 1, 0, 1.5, -0.25)
+mesh = SubResource("BoxMesh_xkhq1")
+surface_material_override/0 = ExtResource("4_hltj0")

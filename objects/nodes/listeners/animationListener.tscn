@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwua8s3s4bbca"]
+
+[ext_resource type="Script" path="res://scripts/nodes/listeners/animationListener.gd" id="1_3e4oy"]
+
+[node name="animationListener" type="Node3D"]
+script = ExtResource("1_3e4oy")

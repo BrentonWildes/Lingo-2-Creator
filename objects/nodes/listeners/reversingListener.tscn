@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://388egya3oajj"]
+
+[ext_resource type="Script" path="res://scripts/nodes/listeners/reversingListener.gd" id="1_5cebq"]
+
+[node name="reversingListener" type="Node3D"]
+script = ExtResource("1_5cebq")

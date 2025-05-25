@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://be0218id3354c"]
+
+[ext_resource type="Script" path="res://scripts/nodes/rotationFixingFloor.gd" id="1_8um6j"]
+[ext_resource type="Material" path="res://assets/materials/transparent/transparentBlack.material" id="2_vgyfs"]
+[ext_resource type="Material" uid="uid://cxuqr6tybs7we" path="res://assets/materials/cobalt.material" id="3_xvg5s"]
+[ext_resource type="MeshLibrary" uid="uid://bsvdqt5tu0ggw" path="res://assets/blocks/meshlibs/blocks.tres" id="4_e10rn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b56vn"]
+material = ExtResource("2_vgyfs")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i12xc"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_vpqy0"]
+material = ExtResource("3_xvg5s")
+size = Vector3(0.5, 1, 0.5)
+
+[node name="gravitySetter" type="Area3D"]
+script = ExtResource("1_8um6j")
+
+[node name="Locator" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_b56vn")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_i12xc")
+
+[node name="Arrow" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0)
+mesh = SubResource("PrismMesh_vpqy0")
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh_library = ExtResource("4_e10rn")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(-4, 65532, 1, -4, 65533, 1, -4, 65534, 31, -4, 65535, 1, -4, 0, 1, -4, 1, 31, -4, 2, 1, -4, 3, 1, -3, 65532, 1, -3, 65533, 1, -3, 65534, 31, -3, 65535, 31, -3, 0, 31, -3, 1, 31, -3, 2, 1, -3, 3, 1, -2, 65532, 31, -2, 65533, 31, -2, 65534, 31, -2, 65535, 1, -2, 0, 1, -2, 1, 31, -2, 2, 31, -2, 3, 31, -1, 65532, 1, -1, 65533, 31, -1, 65534, 1, -1, 65535, 1, -1, 0, 1, -1, 1, 1, -1, 2, 31, -1, 3, 1, -65536, 65532, 1, -65536, 65533, 31, -65536, 65534, 1, -65536, 65535, 1, -65536, 0, 1, -65536, 1, 1, -65536, 2, 31, -65536, 3, 1, -65535, 65532, 31, -65535, 65533, 31, -65535, 65534, 31, -65535, 65535, 1, -65535, 0, 1, -65535, 1, 31, -65535, 2, 31, -65535, 3, 31, -65534, 65532, 1, -65534, 65533, 1, -65534, 65534, 31, -65534, 65535, 31, -65534, 0, 31, -65534, 1, 31, -65534, 2, 1, -65534, 3, 1, -65533, 65532, 1, -65533, 65533, 1, -65533, 65534, 31, -65533, 65535, 1, -65533, 0, 1, -65533, 1, 31, -65533, 2, 1, -65533, 3, 1)
+}
+metadata/_editor_floor_ = Vector3(0, -1, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

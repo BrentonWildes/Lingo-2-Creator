@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0sjriw3r67uh"]
+
+[ext_resource type="Script" path="res://scripts/components/signScoreLookup.gd" id="1_vmgdg"]
+
+[node name="signScoreLookup" type="Node3D"]
+script = ExtResource("1_vmgdg")

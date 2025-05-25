@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://sq5grdj8ufek"]
+
+[ext_resource type="Script" path="res://scripts/nodes/listeners/mergingListener.gd" id="1_n0tf5"]
+
+[node name="mergingListener" type="Node3D"]
+script = ExtResource("1_n0tf5")

@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://cge5lb6levs3m"]
+
+[ext_resource type="Script" path="res://scripts/nodes/gate.gd" id="1_q4sks"]
+[ext_resource type="Material" path="res://assets/materials/cobalt.material" id="2_vkjvw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4bidw"]
+material = ExtResource("2_vkjvw")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_btdmx"]
+
+[node name="Gate" type="Node3D"]
+script = ExtResource("1_q4sks")
+
+[node name="Hinge" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(0.8, 0, 0, 0, 7, 0, 0, 0, 0.5, -0.5, 3.5, 0)
+mesh = SubResource("BoxMesh_4bidw")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hinge/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_btdmx")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(0.8, 0, 0, 0, 7, 0, 0, 0, 0.5, 0.5, 3.5, 0)
+mesh = SubResource("BoxMesh_4bidw")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hinge/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("BoxShape3D_btdmx")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(0.8, 0, 0, 0, 6, 0, 0, 0, 0.5, 1.5, 3, 0)
+mesh = SubResource("BoxMesh_4bidw")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hinge/MeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/MeshInstance3D3/StaticBody3D"]
+shape = SubResource("BoxShape3D_btdmx")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(0.8, 0, 0, 0, 6, 0, 0, 0, 0.5, -1.5, 3, 0)
+mesh = SubResource("BoxMesh_4bidw")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hinge/MeshInstance3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/MeshInstance3D4/StaticBody3D"]
+shape = SubResource("BoxShape3D_btdmx")

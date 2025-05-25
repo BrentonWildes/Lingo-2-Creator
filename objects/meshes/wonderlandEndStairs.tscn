@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://e4q2droi763g"]
+
+[ext_resource type="PackedScene" uid="uid://gsykw4ebdmd5" path="res://objects/meshes/staircaseFilled.tscn" id="1_hfppk"]
+[ext_resource type="Material" uid="uid://rerugpdfeuhh" path="res://assets/materials/plum.material" id="2_ir0gh"]
+[ext_resource type="PackedScene" uid="uid://bk6ocdkhqkp37" path="res://objects/meshes/staircaseBottom.tscn" id="3_j1k5s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cgn6u"]
+size = Vector3(4, 1, 1)
+
+[node name="staircase" type="Node3D"]
+
+[node name="Hinge" type="Node3D" parent="."]
+
+[node name="staircase3" parent="Hinge" instance=ExtResource("1_hfppk")]
+transform = Transform3D(-2, 0, -2.38498e-08, 0, 1, 0, 4.76995e-08, 0, -1, 0, 1, 1)
+material = ExtResource("2_ir0gh")
+
+[node name="staircase6" parent="Hinge" instance=ExtResource("3_j1k5s")]
+transform = Transform3D(-2, 0, -3.25841e-07, 0, 1, 0, 6.51683e-07, 0, -1, 0, 0, 0)
+material = ExtResource("2_ir0gh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2.5)
+mesh = SubResource("BoxMesh_cgn6u")
+surface_material_override/0 = ExtResource("2_ir0gh")

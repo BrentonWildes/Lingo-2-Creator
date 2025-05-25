@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://kaioc44g45s6"]
+
+[ext_resource type="Script" path="res://scripts/nodes/worldport.gd" id="1_au7jg"]
+[ext_resource type="Shader" path="res://assets/shaders/cloud.gdshader" id="2_erxhm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vdxr6"]
+size = Vector3(2, 4, 0.01)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wjvxx"]
+render_priority = 0
+shader = ExtResource("2_erxhm")
+shader_parameter/height_scale = 0.0
+shader_parameter/wave_speed = 0.2
+shader_parameter/upper_transparency = 0.8
+shader_parameter/global_transparency = 0.9
+shader_parameter/time_factor = Vector2(1, 10)
+shader_parameter/uv1_scale = null
+shader_parameter/uv1_offset = null
+shader_parameter/color1 = Color(0.78, 0.91, 0.93, 0.5)
+shader_parameter/color2 = Color(0.9, 0.2, 0.95, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rckrh"]
+material = SubResource("ShaderMaterial_wjvxx")
+size = Vector3(2, 4, 0.01)
+
+[node name="worldport" type="Area3D"]
+script = ExtResource("1_au7jg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_vdxr6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("BoxMesh_rckrh")

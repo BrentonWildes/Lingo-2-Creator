@@ -1,0 +1,136 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctu610fdq0sth"]
+
+[ext_resource type="Script" path="res://scripts/ui/credits_final.gd" id="1_tjgnu"]
+[ext_resource type="Theme" uid="uid://7w454egydi41" path="res://assets/themes/baseUI.tres" id="2_sk1bo"]
+[ext_resource type="Shader" path="res://assets/shaders/crystal.gdshader" id="3_2revl"]
+[ext_resource type="Script" path="res://scripts/ui/buttons.gd" id="4_nt4ot"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sobhl"]
+bg_color = Color(0.168627, 0, 0.247059, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3p8jh"]
+shader = ExtResource("3_2revl")
+shader_parameter/angle = 45.0
+shader_parameter/pos_multiplier = 10.0
+shader_parameter/alpha_clamp = 0.05
+shader_parameter/edge_multiplier = 3.0
+shader_parameter/distance_multiplier = 50.0
+shader_parameter/color_start = Vector4(0.75, 0.75, 0.75, 1)
+shader_parameter/color_end = Vector4(1, 1, 1, 1)
+
+[node name="credits" type="Node2D"]
+script = ExtResource("1_tjgnu")
+
+[node name="Background" type="Panel" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sobhl")
+
+[node name="Shader" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_3p8jh")
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="title" type="Label" parent="Shader"]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 300.0
+theme = ExtResource("2_sk1bo")
+text = "you win!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="Shader"]
+layout_mode = 0
+offset_top = 300.0
+offset_right = 1920.0
+offset_bottom = 880.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Shader/CenterContainer2"]
+custom_minimum_size = Vector2(1920, 600)
+layout_mode = 2
+
+[node name="label" type="Label" parent="Shader/CenterContainer2/ScrollContainer"]
+custom_minimum_size = Vector2(1920, 0)
+layout_mode = 2
+theme = ExtResource("2_sk1bo")
+theme_override_font_sizes/font_size = 40
+text = "
+
+
+
+
+Congratulations! You have completed the game!
+
+
+Thank you so much for taking this journey through lingo 2
+I hope you had as much fun playing it as I had making it
+
+
+Lingo 2 would not have been possible without the help of the following amazing people
+
+
+Additional Development
+
+Star Rauchenberger
+Chris Souvey
+Murder Who
+
+
+Additional Design
+
+Kiwi Finlay
+Star Rauchenberger
+Chris Souvey
+Murder Who
+Dee_Six
+Milanvis
+Quartz
+
+
+Texture Pack Creators
+
+Hugo Carvalho (Kiribati)
+Kyle Millner
+Deusovi
+
+
+Beta Testing
+
+Korver Brown
+Hugo Carvalho (Kiribati)
+Kiwi Finlay
+Wesley Ng
+Star Rauchenberger
+Shinkai Setsuna
+Chris Souvey
+Patrick Traynor
+Murder Who
+Brendangelo
+Dee_Six
+Deusovi
+Gl!tch
+Milanvis
+Quartz
+Samswine
+Subdog
+Vybbles
+
+
+Featuring music by Icely
+
+
+Thank you for playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="return" type="Button" parent="."]
+offset_top = 880.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = ExtResource("2_sk1bo")
+text = "return"
+flat = true
+script = ExtResource("4_nt4ot")
+
+[connection signal="pressed" from="return" to="return" method="_pressed"]

@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://ltk3waolvi3u"]
+
+[ext_resource type="Script" path="res://scripts/nodes/keyHolder.gd" id="1_0qvp2"]
+[ext_resource type="MeshLibrary" uid="uid://bsvdqt5tu0ggw" path="res://assets/blocks/meshlibs/blocks.tres" id="2_07yjb"]
+[ext_resource type="Material" path="res://assets/materials/transparent/transparentMint.material" id="3_cg767"]
+[ext_resource type="FontFile" uid="uid://575cvnh0fjvl" path="res://assets/fonts/Lingo.ttf" id="4_ss1m4"]
+[ext_resource type="Material" uid="uid://dip12na25cufd" path="res://assets/materials/purple.material" id="5_xtlrt"]
+[ext_resource type="Material" uid="uid://crkmemst8tu7" path="res://assets/materials/blackMatte.material" id="6_oyjku"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_74xv0"]
+resource_local_to_scene = true
+material = ExtResource("3_cg767")
+size = Vector3(1.99, 1.99, 0.99)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ysog4"]
+size = Vector3(2, 2, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_jr62c"]
+resource_local_to_scene = true
+material = ExtResource("5_xtlrt")
+text = "-"
+font = ExtResource("4_ss1m4")
+font_size = 96
+
+[sub_resource type="TextMesh" id="TextMesh_4iwqs"]
+resource_local_to_scene = true
+material = ExtResource("6_oyjku")
+text = "-"
+font = ExtResource("4_ss1m4")
+font_size = 96
+
+[node name="keyHolder" type="Node3D"]
+script = ExtResource("1_0qvp2")
+
+[node name="Hinge" type="Node3D" parent="."]
+
+[node name="GridMap" type="GridMap" parent="Hinge"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh_library = ExtResource("2_07yjb")
+cell_size = Vector3(1, 1, 1)
+metadata/_editor_floor_ = Vector3(0, -1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_74xv0")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="Hinge/MeshInstance3D"]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/MeshInstance3D/Area3D"]
+shape = SubResource("BoxShape3D_ysog4")
+
+[node name="Letter" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.01, 0, 1, 0.5)
+mesh = SubResource("TextMesh_jr62c")
+skeleton = NodePath("../..")
+
+[node name="Letter2" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 0.01, 0, 1, 0.498)
+visible = false
+mesh = SubResource("TextMesh_4iwqs")

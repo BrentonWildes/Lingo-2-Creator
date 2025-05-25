@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfinxtu3wnxw8"]
+
+[ext_resource type="Script" path="res://scripts/nodes/listeners/worldportListener.gd" id="1_42gss"]
+
+[node name="worldportListener" type="Node3D"]
+script = ExtResource("1_42gss")

@@ -1,0 +1,186 @@
+[gd_scene load_steps=12 format=3 uid="uid://cyfg4m1yln2s5"]
+
+[ext_resource type="Script" path="res://scripts/nodes/portalController.gd" id="1_dmet3"]
+[ext_resource type="Script" path="res://scripts/nodes/MurderPortal.gd" id="2_uxqju"]
+[ext_resource type="Shader" path="res://assets/shaders/portals/portalShader.gdshader" id="3_a5bvt"]
+[ext_resource type="Shader" path="res://assets/shaders/portals/rippleBuffer.gdshader" id="5_ph4k7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yhyle"]
+render_priority = 0
+shader = ExtResource("3_a5bvt")
+shader_parameter/ripple_shader = true
+shader_parameter/reflection_strength = 0.1
+shader_parameter/normal_sampler_spread = 1
+shader_parameter/normal_strength = 20.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_v5r3w"]
+material = SubResource("ShaderMaterial_yhyle")
+size = Vector2(3, 3)
+center_offset = Vector3(0, 1.5, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3c00b"]
+size = Vector3(3, 3, 0.1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_hv2v8"]
+
+[sub_resource type="Shader" id="Shader_6xrbv"]
+code = "shader_type canvas_item;
+render_mode unshaded;
+uniform sampler2D sim_tex;
+uniform vec2 col;
+uniform float phase = 0.2;
+uniform float lifetime = 1000;
+uniform int deltaUV = 3;
+uniform float clamping_constant = 0.01;
+uniform float cursor_size = 0.025;
+uniform float collision_impact = 1.0;
+
+
+vec4 displacement(sampler2D inputtexture, float dx, float dy, vec2 uv){
+	float v1 = texture(inputtexture, uv - vec2(dx,0)).r;
+	float v2 = texture(inputtexture, uv + vec2(dx,0)).r;
+	float v3 = texture(inputtexture, uv - vec2(0,dy)).r;
+	float v4 = texture(inputtexture, uv + vec2(0,dy)).r;
+	return vec4(v1,v2,v3,v4);
+}
+
+void fragment() {
+	vec3 c = texture(sim_tex, SCREEN_UV).rgb;
+	float damping = 1.- 1.0/lifetime;
+	float p = damping * (2.0 * c.r -c.g + phase * -4.0 * c.r); 
+	
+	float sizey = 1.0 / 1000.0;
+	float sizex = 1.0 / 1000.0;
+
+	vec4 v = displacement(sim_tex, sizex, sizey, SCREEN_UV);
+	//These allow us to add arbitrary amounts of distance, but normalize all the additions to 1
+	//So our wave neither fades faster or slower as a result of deltaUV
+	float divisor = pow(float(deltaUV),2) + float((deltaUV)*(deltaUV+1)/2);
+	float summand = float(2*(deltaUV));
+	p += phase * (v.x + v.y + v.z + v.w) * damping * summand / divisor;
+	
+	for (int i = 1; i < deltaUV; i++) {
+		sizey = 1.0 / 1000.0 * float(i+1);
+		sizex = 1.0 / 1000.0 * float(i+1);
+		v = displacement(sim_tex, sizex, sizey, SCREEN_UV); 
+		p += phase * (v.x + v.y + v.z + v.w) * damping * (summand - float(i+1)) / divisor;
+	}
+	
+
+	float prevCol = texture(sim_tex, SCREEN_UV).b;
+	float curCol;
+
+	curCol = 0.0; 
+	if (distance(SCREEN_UV, col) < cursor_size){curCol = sqrt(distance(SCREEN_UV, col));}
+	
+	if (curCol > 0. && prevCol < 0.0001) {
+		p += curCol * collision_impact;
+	}
+	if (prevCol > 0.0 && curCol < 0.0001) {
+		p -= prevCol * collision_impact;
+	}
+	
+	p = clamp(p, 0.0, 1.0);
+	
+	if (abs(p) < clamping_constant){
+		p *= 0.75;
+	}
+	
+	COLOR = vec4(p, c.r, curCol, 1);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0n32p"]
+resource_local_to_scene = true
+shader = SubResource("Shader_6xrbv")
+shader_parameter/col = null
+shader_parameter/phase = 0.5
+shader_parameter/lifetime = 1000.0
+shader_parameter/deltaUV = 15
+shader_parameter/clamping_constant = 0.001
+shader_parameter/cursor_size = 0.025
+shader_parameter/collision_impact = 1.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v5ort"]
+resource_local_to_scene = true
+shader = ExtResource("5_ph4k7")
+
+[node name="Portal Controller" type="Node"]
+script = ExtResource("1_dmet3")
+
+[node name="MurderPortal" type="Area3D" parent="."]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("2_uxqju")
+
+[node name="MurderPortal" type="MeshInstance3D" parent="MurderPortal"]
+cast_shadow = 0
+mesh = SubResource("QuadMesh_v5r3w")
+skeleton = NodePath("../..")
+
+[node name="Tele box" type="CollisionShape3D" parent="MurderPortal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_3c00b")
+
+[node name="Pointer" type="MeshInstance3D" parent="MurderPortal"]
+transform = Transform3D(-0.675, 8.74228e-08, -6.87847e-16, 0, -4.37114e-08, -0.18, -5.90104e-08, -1, 7.86805e-09, 0, 1.5, 0.16)
+cast_shadow = 0
+mesh = SubResource("PrismMesh_hv2v8")
+
+[node name="Timer" type="Timer" parent="MurderPortal"]
+wait_time = 0.1
+one_shot = true
+
+[node name="PortalCam" type="SubViewport" parent="."]
+transparent_bg = true
+fsr_sharpness = 0.0
+positional_shadow_atlas_size = 0
+positional_shadow_atlas_16_bits = false
+positional_shadow_atlas_quad_0 = 0
+positional_shadow_atlas_quad_1 = 0
+positional_shadow_atlas_quad_2 = 0
+positional_shadow_atlas_quad_3 = 0
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="PortalCam"]
+current = true
+fov = 70.0
+far = 500.0
+
+[node name="Simulation" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+positional_shadow_atlas_size = 533
+positional_shadow_atlas_16_bits = false
+positional_shadow_atlas_quad_0 = 0
+positional_shadow_atlas_quad_1 = 0
+positional_shadow_atlas_quad_2 = 0
+positional_shadow_atlas_quad_3 = 0
+size = Vector2i(1000, 1000)
+render_target_update_mode = 4
+
+[node name="Sim" type="ColorRect" parent="Simulation"]
+material = SubResource("ShaderMaterial_0n32p")
+offset_right = 1000.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 0)
+
+[node name="SimulationBuffer" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+positional_shadow_atlas_size = 0
+positional_shadow_atlas_16_bits = false
+positional_shadow_atlas_quad_0 = 0
+positional_shadow_atlas_quad_1 = 0
+positional_shadow_atlas_quad_2 = 0
+positional_shadow_atlas_quad_3 = 0
+size = Vector2i(1000, 1000)
+render_target_update_mode = 4
+
+[node name="Buffer" type="ColorRect" parent="SimulationBuffer"]
+material = SubResource("ShaderMaterial_v5ort")
+offset_right = 1000.0
+offset_bottom = 1000.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 0)

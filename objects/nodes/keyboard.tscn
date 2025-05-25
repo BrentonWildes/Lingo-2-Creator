@@ -1,0 +1,234 @@
+[gd_scene load_steps=4 format=3 uid="uid://h2psdxdelsi"]
+
+[ext_resource type="Script" path="res://scripts/ui/keyboard.gd" id="1_seyts"]
+[ext_resource type="Texture2D" uid="uid://7oyo067bb2fv" path="res://assets/images/ui/keyboard/keyboard_background.png" id="2_w8lob"]
+[ext_resource type="PackedScene" uid="uid://ci8nf5syed5ym" path="res://objects/nodes/keyboardKey.tscn" id="3_vpqya"]
+
+[node name="keyboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_seyts")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_w8lob")
+
+[node name="key_q" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 461.0
+offset_top = 776.0
+offset_right = 461.0
+offset_bottom = 776.0
+key = "q"
+
+[node name="key_a" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 461.0
+offset_top = 876.0
+offset_right = 461.0
+offset_bottom = 876.0
+
+[node name="key_z" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 461.0
+offset_top = 977.0
+offset_right = 461.0
+offset_bottom = 977.0
+key = "z"
+
+[node name="key_w" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 561.0
+offset_top = 776.0
+offset_right = 561.0
+offset_bottom = 776.0
+key = "w"
+
+[node name="key_s" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 561.0
+offset_top = 876.0
+offset_right = 561.0
+offset_bottom = 876.0
+key = "s"
+
+[node name="key_x" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 561.0
+offset_top = 976.0
+offset_right = 561.0
+offset_bottom = 976.0
+key = "x"
+
+[node name="key_e" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 661.0
+offset_top = 776.0
+offset_right = 661.0
+offset_bottom = 776.0
+key = "e"
+
+[node name="key_d" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 661.0
+offset_top = 876.0
+offset_right = 661.0
+offset_bottom = 876.0
+key = "d"
+
+[node name="key_c" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 661.0
+offset_top = 976.0
+offset_right = 661.0
+offset_bottom = 976.0
+key = "c"
+
+[node name="key_r" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 761.0
+offset_top = 776.0
+offset_right = 761.0
+offset_bottom = 776.0
+key = "r"
+
+[node name="key_f" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 761.0
+offset_top = 876.0
+offset_right = 761.0
+offset_bottom = 876.0
+key = "f"
+
+[node name="key_v" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 761.0
+offset_top = 976.0
+offset_right = 761.0
+offset_bottom = 976.0
+key = "v"
+
+[node name="key_t" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 861.0
+offset_top = 776.0
+offset_right = 861.0
+offset_bottom = 776.0
+key = "t"
+
+[node name="key_g" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 861.0
+offset_top = 876.0
+offset_right = 861.0
+offset_bottom = 876.0
+key = "g"
+
+[node name="key_b" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 861.0
+offset_top = 976.0
+offset_right = 861.0
+offset_bottom = 976.0
+key = "b"
+
+[node name="key_y" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 961.0
+offset_top = 776.0
+offset_right = 961.0
+offset_bottom = 776.0
+key = "y"
+
+[node name="key_h" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 961.0
+offset_top = 876.0
+offset_right = 961.0
+offset_bottom = 876.0
+key = "h"
+
+[node name="key_n" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 961.0
+offset_top = 976.0
+offset_right = 961.0
+offset_bottom = 976.0
+key = "n"
+
+[node name="key_u" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 1061.0
+offset_top = 776.0
+offset_right = 1061.0
+offset_bottom = 776.0
+key = "u"
+
+[node name="key_j" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 1061.0
+offset_top = 876.0
+offset_right = 1061.0
+offset_bottom = 876.0
+key = "j"
+
+[node name="key_m" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 1061.0
+offset_top = 976.0
+offset_right = 1061.0
+offset_bottom = 976.0
+key = "m"
+
+[node name="key_i" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 1161.0
+offset_top = 776.0
+offset_right = 1161.0
+offset_bottom = 776.0
+key = "i"
+
+[node name="key_k" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 1161.0
+offset_top = 876.0
+offset_right = 1161.0
+offset_bottom = 876.0
+key = "k"
+
+[node name="key_insert" parent="." instance=ExtResource("3_vpqya")]
+visible = false
+offset_left = 1161.0
+offset_top = 976.0
+offset_right = 1161.0
+offset_bottom = 976.0
+key = "z"
+
+[node name="key_o" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 1261.0
+offset_top = 776.0
+offset_right = 1261.0
+offset_bottom = 776.0
+key = "o"
+
+[node name="key_l" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 1261.0
+offset_top = 876.0
+offset_right = 1261.0
+offset_bottom = 876.0
+key = "l"
+
+[node name="key_backspace" parent="." instance=ExtResource("3_vpqya")]
+visible = false
+offset_left = 1261.0
+offset_top = 976.0
+offset_right = 1261.0
+offset_bottom = 976.0
+key = "z"
+
+[node name="key_p" parent="." instance=ExtResource("3_vpqya")]
+offset_left = 1361.0
+offset_top = 776.0
+offset_right = 1361.0
+offset_bottom = 776.0
+key = "p"
+
+[node name="key_extra_right_1" parent="." instance=ExtResource("3_vpqya")]
+visible = false
+offset_left = 1361.0
+offset_top = 876.0
+offset_right = 1361.0
+offset_bottom = 876.0
+
+[node name="key_delete" parent="." instance=ExtResource("3_vpqya")]
+visible = false
+offset_left = 1361.0
+offset_top = 976.0
+offset_right = 1361.0
+offset_bottom = 976.0
+key = "z"

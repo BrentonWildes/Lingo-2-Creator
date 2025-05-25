@@ -1,0 +1,143 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxibmlb6mused"]
+
+[ext_resource type="Theme" uid="uid://7w454egydi41" path="res://assets/themes/baseUI.tres" id="1_lg6qn"]
+
+[node name="controlsInner" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="title" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 200.0
+theme = ExtResource("1_lg6qn")
+text = "controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 805.0
+offset_right = 1043.0
+offset_bottom = 865.0
+theme = ExtResource("1_lg6qn")
+theme_override_font_sizes/font_size = 55
+text = "*customize in settings"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 200.0
+offset_right = 1580.0
+offset_bottom = 730.0
+columns = 2
+
+[node name="label" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_lg6qn")
+theme_override_font_sizes/font_size = 55
+text = "look"
+
+[node name="label2" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_lg6qn")
+theme_override_font_sizes/font_size = 55
+text = "mouse"
+
+[node name="label3" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_lg6qn")
+theme_override_font_sizes/font_size = 55
+text = "move"
+
+[node name="label4" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_lg6qn")
+theme_override_font_sizes/font_size = 55
+text = "wasd*"
+
+[node name="label12" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_lg6qn")
+theme_override_font_sizes/font_size = 55
+text = "jump"
+
+[node name="label17" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_lg6qn")
+theme_override_font_sizes/font_size = 55
+text = "space"
+
+[node name="label5" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_lg6qn")
+theme_override_font_sizes/font_size = 55
+text = "solve mode                   "
+
+[node name="label6" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_lg6qn")
+theme_override_font_sizes/font_size = 55
+text = "mouse click / enter"
+
+[node name="label7" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_lg6qn")
+theme_override_font_sizes/font_size = 55
+text = "run"
+
+[node name="label8" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_lg6qn")
+theme_override_font_sizes/font_size = 55
+text = "shift*"
+
+[node name="label13" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_lg6qn")
+theme_override_font_sizes/font_size = 55
+text = "unsolve"
+
+[node name="label14" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_lg6qn")
+theme_override_font_sizes/font_size = 55
+text = "delete / backspace"
+
+[node name="label9" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_lg6qn")
+theme_override_colors/font_color = Color(0.588235, 0, 0, 1)
+theme_override_font_sizes/font_size = 55
+text = "[redacted]"
+
+[node name="label10" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_lg6qn")
+theme_override_font_sizes/font_size = 55
+text = "control"
+
+[node name="label15" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_lg6qn")
+theme_override_font_sizes/font_size = 55
+text = "hint"
+
+[node name="label16" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_lg6qn")
+theme_override_font_sizes/font_size = 55
+text = "insert / capslock"
+
+[node name="label11" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_lg6qn")
+theme_override_font_sizes/font_size = 55
+text = "menu"
+
+[node name="label18" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_lg6qn")
+theme_override_font_sizes/font_size = 55
+text = "escape"

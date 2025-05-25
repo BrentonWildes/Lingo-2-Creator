@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6hdt021v57vd"]
+
+[ext_resource type="Script" path="res://scripts/nodes/signFlatRotate.gd" id="1_kc1fv"]
+[ext_resource type="FontFile" uid="uid://575cvnh0fjvl" path="res://assets/fonts/Lingo.ttf" id="2_78rg7"]
+
+[sub_resource type="Animation" id="Animation_vx72k"]
+resource_name = "spin"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, 0, 0.707, 0, 0.707, 1, 1, 0, 1, 0, 0, 1.5, 1, 0, 0.707, 0, -0.707, 2, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4c54s"]
+_data = {
+"spin": SubResource("Animation_vx72k")
+}
+
+[node name="signFlatRotate" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_kc1fv")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+double_sided = false
+modulate = Color(0.541176, 0.0980392, 1, 1)
+text = "front"
+font = ExtResource("2_78rg7")
+font_size = 80
+outline_size = 5
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(-0.999999, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -0.999999, 0, 0, -0.01)
+double_sided = false
+modulate = Color(0.541176, 0.0980392, 1, 1)
+text = "back"
+font = ExtResource("2_78rg7")
+font_size = 80
+outline_size = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 0.2
+libraries = {
+"": SubResource("AnimationLibrary_4c54s")
+}

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://gjoffqekcgea"]
+
+[ext_resource type="Material" path="res://assets/materials/transparent/transparentRedBright.material" id="1_bubiq"]
+[ext_resource type="Material" uid="uid://dc2toyctuqsxm" path="res://assets/materials/orangeDark.material" id="2_eqws4"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_0yetf"]
+material = ExtResource("2_eqws4")
+outer_radius = 0.75
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t1u4k"]
+material = ExtResource("1_bubiq")
+height = 0.1
+
+[node name="light" type="OmniLight3D"]
+omni_range = 10.0
+omni_attenuation = 0.007
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_0yetf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_t1u4k")
+skeleton = NodePath("../MeshInstance3D")

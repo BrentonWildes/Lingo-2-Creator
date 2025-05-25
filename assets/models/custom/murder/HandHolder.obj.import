@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bx1828qn1v474"
+path="res://.godot/imported/HandHolder.obj-697ee8bd178240fe79086fed48b34faa.mesh"
+
+[deps]
+
+files=["res://.godot/imported/HandHolder.obj-697ee8bd178240fe79086fed48b34faa.mesh"]
+
+source_file="res://assets/models/custom/murder/HandHolder.obj"
+dest_files=["res://.godot/imported/HandHolder.obj-697ee8bd178240fe79086fed48b34faa.mesh", "res://.godot/imported/HandHolder.obj-697ee8bd178240fe79086fed48b34faa.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxbv4ygqtfyj5"]
+
+[ext_resource type="Script" path="res://scripts/ui/playerCreate.gd" id="1_bxcy8"]
+[ext_resource type="Shader" path="res://assets/shaders/crystal.gdshader" id="2_gx7rx"]
+[ext_resource type="Theme" uid="uid://7w454egydi41" path="res://assets/themes/baseUI.tres" id="3_quj3k"]
+[ext_resource type="Script" path="res://scripts/ui/buttons.gd" id="4_vas1y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sobhl"]
+bg_color = Color(0.168627, 0, 0.247059, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3p8jh"]
+shader = ExtResource("2_gx7rx")
+shader_parameter/angle = 45.0
+shader_parameter/pos_multiplier = 10.0
+shader_parameter/alpha_clamp = 0.05
+shader_parameter/edge_multiplier = 3.0
+shader_parameter/distance_multiplier = 50.0
+shader_parameter/color_start = Vector4(0.75, 0.75, 0.75, 1)
+shader_parameter/color_end = Vector4(1, 1, 1, 1)
+
+[node name="player_create" type="Node2D"]
+script = ExtResource("1_bxcy8")
+
+[node name="Background" type="Panel" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sobhl")
+
+[node name="Shader" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_3p8jh")
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="title" type="Label" parent="Shader"]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 200.0
+theme = ExtResource("3_quj3k")
+text = "new player"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Shader"]
+layout_mode = 0
+offset_top = 540.0
+offset_right = 1920.0
+offset_bottom = 880.0
+
+[node name="Grid" type="GridContainer" parent="Shader/CenterContainer"]
+layout_mode = 2
+
+[node name="error" type="Label" parent="Shader/CenterContainer/Grid"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_quj3k")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 55
+text = "Please choose a name 
+without special characters"
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Shader/CenterContainer/Grid"]
+layout_mode = 2
+columns = 2
+
+[node name="label" type="Label" parent="Shader/CenterContainer/Grid/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_quj3k")
+text = "name "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextEdit" type="LineEdit" parent="Shader/CenterContainer/Grid/GridContainer"]
+custom_minimum_size = Vector2(800, 100)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../../../../../create_player")
+theme = ExtResource("3_quj3k")
+max_length = 15
+
+[node name="CenterContainer2" type="CenterContainer" parent="Shader"]
+layout_mode = 0
+offset_top = 196.0
+offset_right = 1920.0
+offset_bottom = 540.0
+
+[node name="label" type="Label" parent="Shader/CenterContainer2"]
+layout_mode = 2
+theme = ExtResource("3_quj3k")
+theme_override_font_sizes/font_size = 55
+text = "Create a new profile. Your game will
+save your progress automatically.
+
+Change profiles on the player
+select screen."
+vertical_alignment = 1
+
+[node name="create_player" type="Button" parent="."]
+offset_top = 880.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+focus_neighbor_top = NodePath("../Shader/CenterContainer/Grid/GridContainer/TextEdit")
+theme = ExtResource("3_quj3k")
+text = "Create"
+flat = true
+script = ExtResource("4_vas1y")
+
+[connection signal="pressed" from="create_player" to="create_player" method="_pressed"]

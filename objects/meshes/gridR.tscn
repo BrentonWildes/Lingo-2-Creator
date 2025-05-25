@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj2g177jina"]
+
+[ext_resource type="Script" path="res://scripts/nodes/door.gd" id="1_7xukm"]
+[ext_resource type="MeshLibrary" uid="uid://bsvdqt5tu0ggw" path="res://assets/blocks/meshlibs/blocks.tres" id="2_imm7o"]
+
+[node name="gridR" type="Node3D"]
+script = ExtResource("1_7xukm")
+
+[node name="Hinge" type="Node3D" parent="."]
+
+[node name="GridMap" type="GridMap" parent="Hinge"]
+mesh_library = ExtResource("2_imm7o")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(-1, 65535, 6, 65535, 65535, 196614, -65536, 65535, 196614, 0, 65535, 6, -1, 0, 6, 65535, 0, 196614, -65536, 0, 196614, 0, 0, 6, -131072, 65535, 196614, -131072, 0, 196614, -131071, 65535, 196614, -131071, 0, 196614, -65535, 65535, 196614, -65535, 0, 196614, -196607, 65535, 196614, -196607, 0, 196614, -196606, 65535, 196614, -196606, 0, 196614, -131070, 65535, 196614, -131070, 0, 196614, 65534, 65535, 196614, 65534, 0, 196614, 131070, 65535, 196614, 131070, 0, 196614, 131071, 65535, 196614, 131071, 0, 196614, 131069, 65535, 196614, 131069, 0, 196614, 196605, 65535, 196614, 196605, 0, 196614, 196606, 65535, 196614, 196606, 0, 196614)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)

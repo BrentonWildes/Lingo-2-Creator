@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://6j872ei7pfi2"
+path="res://.godot/imported/WoodLectern.obj-bf2caec3aeb4405020d4cd8bfe2bc87e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/WoodLectern.obj-bf2caec3aeb4405020d4cd8bfe2bc87e.mesh"]
+
+source_file="res://assets/models/custom/murder/WoodLectern.obj"
+dest_files=["res://.godot/imported/WoodLectern.obj-bf2caec3aeb4405020d4cd8bfe2bc87e.mesh", "res://.godot/imported/WoodLectern.obj-bf2caec3aeb4405020d4cd8bfe2bc87e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,49 @@
+[gd_resource type="Shader" format=3 uid="uid://ce858rg3nfu1e"]
+
+[resource]
+code = "shader_type canvas_item;
+uniform float intensity = 0.15;
+uniform float data_field_1 = 24;
+uniform bool speed_is_data_1 = true;
+uniform vec3 colour = vec3(0,0,1);
+uniform float data_field_2 = 7;
+uniform bool number_of_screen_lines_is_data_2 = true;
+uniform vec3 colour_tone = vec3(112,66,30);
+uniform float data_field_3 = 0.5;
+uniform bool tone_intensity_is_data_3 = true;
+uniform float vignette_intensity = 1;
+uniform sampler2D vignette;
+uniform sampler2D peek: hint_screen_texture;
+uniform float opacity_max = 0.15;
+
+#include \"res://assets/libraries/murder/random.gdshaderinc\"
+
+void fragment() {
+	float uv_x = mod(UV.x, 1./data_field_2)*data_field_2;
+	float x_tot = uv_x - floor(uv_x);
+	float c_uv_x = 1.+floor(UV.x*data_field_2)/data_field_2;
+
+	float random = random(c_uv_x*TIME*data_field_1);
+
+	float vignette_factor = mix(0.0, texture(vignette, UV).w, vignette_intensity);
+
+	vec2 uv = SCREEN_UV;
+	vec3 colour_output = texture(peek, uv).xyz;
+	colour_output = mix(colour_output, colour_tone/vec3(255.,255.,255.), data_field_3);
+	float opacity_factor = clamp(1.-vignette_factor, 0.0, opacity_max);
+	
+	
+	if (random < intensity){
+	
+		if (x_tot > mod(TIME*data_field_1, 1.0) && x_tot < mod(data_field_1*TIME+0.01, 1.0)){
+			colour_output *= vec3(0,0,0);
+		}
+	}
+	
+
+	COLOR = vec4(colour_output,opacity_factor);
+
+		
+
+	}
+"

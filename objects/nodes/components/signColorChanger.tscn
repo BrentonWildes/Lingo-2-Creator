@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d42g7eawe4r5"]
+
+[ext_resource type="Script" path="res://scripts/components/signColorChanger.gd" id="1_orkuu"]
+
+[node name="signColorChanger" type="Node3D"]
+script = ExtResource("1_orkuu")

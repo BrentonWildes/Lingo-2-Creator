@@ -1,0 +1,180 @@
+[gd_scene load_steps=17 format=3 uid="uid://4afxg7df6e4j"]
+
+[ext_resource type="Shader" path="res://assets/shaders/murder/sky.gdshader" id="1_12yy1"]
+[ext_resource type="Script" path="res://scripts/nodes/shaders/sky.gd" id="2_r3fv1"]
+[ext_resource type="Texture2D" uid="uid://ddnibv3hbeqv3" path="res://assets/images/shaders/starfield.jpg" id="3_kg0ub"]
+[ext_resource type="Texture2D" uid="uid://cfcrchc87y1t1" path="res://assets/images/shaders/notnerb.png" id="4_874jh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y3q74"]
+shader = ExtResource("1_12yy1")
+shader_parameter/atmosphere_density = 1.0
+shader_parameter/planet_radius_to_atmosphere_radius = 64.0
+shader_parameter/atmosphere_ozone_richness = 1.0
+shader_parameter/sun_pos = null
+shader_parameter/sun_color = null
+shader_parameter/sun_power = 5.0
+shader_parameter/sun_size = 1.0
+shader_parameter/sun2_pos = null
+shader_parameter/sun2_color = null
+shader_parameter/sun2_power = 3.0
+shader_parameter/sun2_size = 0.75
+shader_parameter/moon_pos = null
+shader_parameter/moon_color = null
+shader_parameter/moon_power = 5.0
+shader_parameter/moon_size = 0.5
+shader_parameter/moon_axis = null
+shader_parameter/moon_start = null
+shader_parameter/cloud_density = null
+shader_parameter/cloud_amount = null
+shader_parameter/cloud_horizon_density = null
+shader_parameter/cloud_horizon_amount = null
+shader_parameter/cloud_horizon_height = null
+shader_parameter/cloud_distance = null
+shader_parameter/cloud_direction = null
+shader_parameter/cloud_direction2 = null
+shader_parameter/cloud_direction3 = null
+shader_parameter/cloud_scale = null
+shader_parameter/cloud_scale2 = null
+shader_parameter/cloud_scale3 = null
+shader_parameter/cloud_speed = null
+shader_parameter/ground_horizon_color = null
+shader_parameter/ground_bottom_color = null
+shader_parameter/ground_curve = null
+shader_parameter/ground_energy = null
+shader_parameter/ground_reflectivity_curve = null
+shader_parameter/star_pos = null
+shader_parameter/star_brightness = 0.05
+shader_parameter/star_twinkle = 1.0
+shader_parameter/star_color_variation = 0.5
+shader_parameter/star_scale = 10.0
+
+[sub_resource type="Sky" id="Sky_qwc7u"]
+sky_material = SubResource("ShaderMaterial_y3q74")
+process_mode = 3
+
+[sub_resource type="Environment" id="Environment_tjrsg"]
+background_mode = 2
+background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 1.21
+sky = SubResource("Sky_qwc7u")
+ambient_light_source = 3
+ambient_light_energy = 0.75
+ssr_max_steps = 32
+ssao_enabled = true
+ssao_radius = 0.5
+ssao_intensity = 0.5
+ssao_power = 0.5
+ssao_detail = 5.0
+ssil_enabled = true
+ssil_radius = 1.0
+volumetric_fog_density = 0.0
+
+[sub_resource type="Gradient" id="Gradient_ejylt"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_itsqg"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rhrb8"]
+width = 128
+height = 128
+seamless = true
+seamless_blend_skirt = 0.422
+color_ramp = SubResource("Gradient_ejylt")
+noise = SubResource("FastNoiseLite_itsqg")
+
+[sub_resource type="Gradient" id="Gradient_i8ctb"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0htli"]
+noise_type = 3
+seed = 3751
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y4kfq"]
+width = 64
+height = 64
+seamless = true
+seamless_blend_skirt = 0.405
+color_ramp = SubResource("Gradient_i8ctb")
+noise = SubResource("FastNoiseLite_0htli")
+
+[sub_resource type="Gradient" id="Gradient_6totg"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1bdob"]
+noise_type = 3
+seed = 330
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0y30d"]
+width = 128
+height = 128
+seamless = true
+seamless_blend_skirt = 0.451
+color_ramp = SubResource("Gradient_6totg")
+noise = SubResource("FastNoiseLite_1bdob")
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_tjrsg")
+script = ExtResource("2_r3fv1")
+time_resolution_ms = 30
+cloud_density = 1.0
+cloud_amount = 1.0
+cloud_horizon_density = 1.0
+cloud_horizon_amount = 1.0
+cloud_distance = 0.778
+cloud_horizon_height = 0.45
+cloud_direction = Vector2(0.707, 0.707)
+cloud_direction2 = Vector2(-0.866, 0.5)
+cloud_direction3 = Vector2(0.9, -0.435)
+cloud_scale = 10.54
+cloud_scale2 = 8.195
+cloud_scale3 = 2.0
+cloud_noise = SubResource("NoiseTexture2D_rhrb8")
+cloud_noise2 = SubResource("NoiseTexture2D_y4kfq")
+cloud_noise3 = SubResource("NoiseTexture2D_0y30d")
+star_image = ExtResource("3_kg0ub")
+star_day_length = 600.0
+star_brightness = 0.2
+star_twinkle = 0.1
+star_color_variation = 0.09
+sun_starting_position = Vector3(0, 0, -1)
+sun_color = Color(1, 0.8, 1, 1)
+sun_day_length = 70.0
+sun_size = 0.915
+sun_time_offset = -10.0
+sun2_starting_position = Vector3(1, 0, 0)
+sun2_axis = Vector3(0, 0, 1)
+sun2_color = Color(1, 0.721569, 0.721569, 1)
+sun2_day_length = 80.0
+sun2_brightness = -0.5
+sun2_size = 0.385
+sun2_time_offset = -10.0
+moon_starting_position = Vector3(0, 0, 1)
+moon_axis = Vector3(-1, 0, 0)
+moon_day_length = 90.0
+moon_brightness = 0.1
+moon_size = 1.0
+moon_time_offset = 40.0
+moon_texture = ExtResource("4_874jh")
+ground_horizon_color = Color(0.647059, 0.52549, 0.407843, 1)
+ground_bottom_color = Color(0.2, 0.168627, 0.666667, 1)
+ground_curve = 0.02
+ground_energy = 0.265
+ground_reflecitivy_curve = 0.895252
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.1835, 0)
+rotation_edit_mode = 2
+light_energy = 0.0
+shadow_enabled = true
+sky_mode = 1
+
+[node name="Sun2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.5, 0.812422, -0.29995, 0.707107, -0.183013, 0.683013, 0.5, -0.553603, -0.665976, 0, 10, 5)
+light_energy = 5.795
+shadow_enabled = true
+sky_mode = 1
+
+[node name="Moon" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.5, 0.812422, -0.29995, 0.707107, -0.183013, 0.683013, 0.5, -0.553603, -0.665976, 0, 10, 5)
+shadow_enabled = true
+sky_mode = 1

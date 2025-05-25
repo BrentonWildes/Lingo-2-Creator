@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbq1pd6irjby8"]
+
+[ext_resource type="Shader" path="res://assets/shaders/archive/grain.gdshader" id="1_1b0g6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_occso"]
+lightmap_size_hint = Vector2i(12, 12)
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ju6mi"]
+shader = ExtResource("1_1b0g6")
+shader_parameter/grain_amount = 0.5
+shader_parameter/grain_size = 1.0
+
+[node name="grain" type="MeshInstance3D"]
+cast_shadow = 0
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_occso")
+surface_material_override/0 = SubResource("ShaderMaterial_ju6mi")

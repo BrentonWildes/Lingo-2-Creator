@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://t8stbjul3rb5"]
+
+[ext_resource type="Script" path="res://scripts/ui/levelSelect.gd" id="1_l1366"]
+[ext_resource type="Shader" path="res://assets/shaders/crystal.gdshader" id="2_fruyn"]
+[ext_resource type="Theme" uid="uid://7w454egydi41" path="res://assets/themes/baseUI.tres" id="3_nw3cx"]
+[ext_resource type="Script" path="res://scripts/ui/buttons.gd" id="4_vs6gq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sobhl"]
+bg_color = Color(0.168627, 0, 0.247059, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3p8jh"]
+shader = ExtResource("2_fruyn")
+shader_parameter/angle = 45.0
+shader_parameter/pos_multiplier = 10.0
+shader_parameter/alpha_clamp = 0.05
+shader_parameter/edge_multiplier = 3.0
+shader_parameter/distance_multiplier = 50.0
+shader_parameter/color_start = Vector4(0.75, 0.75, 0.75, 1)
+shader_parameter/color_end = Vector4(1, 1, 1, 1)
+
+[node name="level_select" type="Node2D"]
+script = ExtResource("1_l1366")
+
+[node name="Background" type="Panel" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sobhl")
+
+[node name="Shader" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_3p8jh")
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Shader"]
+layout_mode = 0
+offset_left = 642.0
+offset_top = 275.0
+offset_right = 1284.0
+offset_bottom = 829.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shader/ScrollContainer"]
+custom_minimum_size = Vector2(642, 0)
+layout_mode = 2
+
+[node name="title" type="Label" parent="Shader"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 200.0
+theme = ExtResource("3_nw3cx")
+text = "level select"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="return" type="Button" parent="Shader"]
+layout_mode = 0
+offset_top = 880.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = ExtResource("3_nw3cx")
+text = "return"
+flat = true
+script = ExtResource("4_vs6gq")
+
+[connection signal="pressed" from="Shader/return" to="Shader/return" method="_pressed"]

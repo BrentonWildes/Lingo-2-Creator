@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://b3doje7hplmv0"]
+
+[ext_resource type="Script" path="res://scripts/nodes/teleport.gd" id="1_aalrx"]
+[ext_resource type="Material" path="res://assets/materials/transparent/transparentPurple.material" id="2_y506x"]
+[ext_resource type="Material" path="res://assets/materials/transparent/transparentMagenta.material" id="3_kl4b5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vdxr6"]
+size = Vector3(2, 4, 0.01)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rckrh"]
+material = ExtResource("2_y506x")
+size = Vector3(2, 3.5, 0.01)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4fa15"]
+size = Vector3(2, 0.5, 0.01)
+
+[sub_resource type="PrismMesh" id="PrismMesh_fq0sf"]
+material = ExtResource("3_kl4b5")
+size = Vector3(0.5, 0.5, 0.1)
+
+[node name="teleport" type="Area3D"]
+script = ExtResource("1_aalrx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_vdxr6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+visible = false
+mesh = SubResource("BoxMesh_rckrh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+visible = false
+mesh = SubResource("BoxMesh_4fa15")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.31134e-07, 1, 0, -1, 1.31134e-07, 0, 2.25, 0)
+visible = false
+mesh = SubResource("PrismMesh_fq0sf")

@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2jauk2c6wlsl"]
+
+[ext_resource type="Theme" uid="uid://7w454egydi41" path="res://assets/themes/baseUI.tres" id="1_0a0me"]
+[ext_resource type="Script" path="res://scripts/ui/rteMenu.gd" id="1_1mdan"]
+
+[node name="rteInner" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_1mdan")
+
+[node name="rte_the_entry" type="Button" parent="."]
+layout_mode = 0
+offset_left = 750.0
+offset_top = 400.0
+offset_right = 1180.0
+offset_bottom = 550.0
+theme = ExtResource("1_0a0me")
+theme_override_font_sizes/font_size = 60
+text = "The Entry"
+
+[node name="rte_the_plaza" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 750.0
+offset_top = 150.0
+offset_right = 1180.0
+offset_bottom = 300.0
+focus_neighbor_bottom = NodePath("../rte_the_entry")
+theme = ExtResource("1_0a0me")
+theme_override_font_sizes/font_size = 60
+text = "The Plaza"
+
+[node name="rte_the_gallery" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 150.0
+offset_top = 400.0
+offset_right = 580.0
+offset_bottom = 550.0
+focus_neighbor_right = NodePath("../rte_the_entry")
+theme = ExtResource("1_0a0me")
+theme_override_font_sizes/font_size = 60
+text = "The Gallery"
+
+[node name="rte_daedalus" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1350.0
+offset_top = 400.0
+offset_right = 1780.0
+offset_bottom = 550.0
+focus_neighbor_left = NodePath("../rte_the_entry")
+theme = ExtResource("1_0a0me")
+theme_override_font_sizes/font_size = 60
+text = "Daedalus"
+
+[node name="rte_control_center" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 750.0
+offset_top = 650.0
+offset_right = 1180.0
+offset_bottom = 800.0
+focus_neighbor_top = NodePath("../rte_the_entry")
+theme = ExtResource("1_0a0me")
+theme_override_font_sizes/font_size = 60
+text = "Control
+Center"

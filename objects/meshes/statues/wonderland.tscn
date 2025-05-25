@@ -1,0 +1,176 @@
+[gd_scene load_steps=12 format=3 uid="uid://c2jao282c6xnw"]
+
+[ext_resource type="MeshLibrary" uid="uid://bsvdqt5tu0ggw" path="res://assets/blocks/meshlibs/blocks.tres" id="1_ixk0h"]
+[ext_resource type="Material" uid="uid://cfag1ty1610i2" path="res://assets/materials/purpleDark.material" id="2_pn1om"]
+[ext_resource type="Material" uid="uid://bc26aalon20tw" path="res://assets/materials/purpleLight.material" id="3_xn78x"]
+[ext_resource type="Material" uid="uid://ciu5d0dvfodio" path="res://assets/materials/turquoise.material" id="4_k6hld"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_v2lri"]
+material = ExtResource("2_pn1om")
+
+[sub_resource type="BoxMesh" id="BoxMesh_mllvi"]
+material = ExtResource("3_xn78x")
+
+[sub_resource type="Animation" id="Animation_2q85f"]
+resource_name = "Wonderland-Trophy-Opening"
+length = 10.0
+loop_mode = 1
+step = 0.25
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door1Hinge")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 1, 0, -0.707, 0, 0.707, 7.625, 1, 0, -0.707, 0, 0.707, 8.58833, 1, 0, 0, 0, 1)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door2Hinge")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(1.25, 1, 0, 0, 0, 1, 2.25, 1, 0, -0.707, 0, 0.707, 6.36833, 1, 0, -0.707, 0, 0.707, 7.36833, 1, 0, 0, 0, 1)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Door3Hinge")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(2.5, 1, 0, 0, 0, 1, 3.5, 1, 0, -0.707, 0, 0.707, 5.11833, 1, 0, -0.707, 0, 0.707, 6.11833, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_iaami"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door1Hinge")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door2Hinge")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Door3Hinge")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yw0r5"]
+_data = {
+"RESET": SubResource("Animation_iaami"),
+"Wonderland-Trophy-Opening": SubResource("Animation_2q85f")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_x2i33"]
+material = ExtResource("4_k6hld")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hmmnt"]
+size = Vector3(1, 1.5, 1)
+
+[node name="wonderland" type="Node3D"]
+
+[node name="Hinge" type="Node3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.8, 0, 0, 0, 0.7, 0, 0.101396, 0)
+
+[node name="Door1Hinge" type="Node3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.976861, 1.81661, -0.628941)
+
+[node name="Door" type="MeshInstance3D" parent="Hinge/Door1Hinge"]
+transform = Transform3D(1.75, 0, 0, 0, 2.5, 0, 0, 0, 0.2, 0.976861, -0.0666076, 0.00394088)
+mesh = SubResource("BoxMesh_v2lri")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hinge/Door1Hinge/Door"]
+transform = Transform3D(0.228571, 0, 0, 0, 0.16, 0, 0, 0, 0.8, 0.285714, 0, 0.4)
+mesh = SubResource("BoxMesh_mllvi")
+skeleton = NodePath("../../..")
+
+[node name="Door2Hinge" type="Node3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.669778, 1.36312, -0.613717)
+
+[node name="Door2" type="MeshInstance3D" parent="Hinge/Door2Hinge"]
+transform = Transform3D(1.2, 0, 0, 0, 1.7, 0, 0, 0, 0.115, 0.669778, -0.0131171, -0.0112827)
+mesh = SubResource("BoxMesh_v2lri")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hinge/Door2Hinge/Door2"]
+transform = Transform3D(0.228571, 0, 0, 0, 0.16, 0, 0, 0, 0.8, 0.285714, 0, 0.4)
+mesh = SubResource("BoxMesh_mllvi")
+skeleton = NodePath("../../..")
+
+[node name="Door3Hinge" type="Node3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.443299, 1, -0.626883)
+
+[node name="Door3" type="MeshInstance3D" parent="Hinge/Door3Hinge"]
+transform = Transform3D(0.778, 0, 0, 0, 1.111, 0, 0, 0, 0.06, 0.443299, 0.0612441, 0.00188297)
+mesh = SubResource("BoxMesh_v2lri")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hinge/Door3Hinge/Door3"]
+transform = Transform3D(0.228571, 0, 0, 0, 0.16, 0, 0, 0, 0.8, 0.285714, 0, 0.4)
+mesh = SubResource("BoxMesh_mllvi")
+skeleton = NodePath("../../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hinge"]
+libraries = {
+"": SubResource("AnimationLibrary_yw0r5")
+}
+autoplay = "Wonderland-Trophy-Opening"
+
+[node name="Frame" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1.925, 0, 0, 0, 0.25, 0, 0, 0, 0.18, 0, 3.12582, -0.625)
+mesh = SubResource("BoxMesh_x2i33")
+
+[node name="Frame2" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(-8.41444e-08, -0.175, 0, 2.75, -1.09278e-08, 0, 0, 0, 0.18, 0.967032, 1.87239, -0.625)
+mesh = SubResource("BoxMesh_x2i33")
+
+[node name="Frame3" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(-8.41444e-08, -0.175, 0, 2.75, -1.09278e-08, 0, 0, 0, 0.18, -0.973669, 1.87239, -0.625)
+mesh = SubResource("BoxMesh_x2i33")
+
+[node name="Frame4" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1.32, 0, 0, 0, 0.17, 0, 0, 0, 0.1035, 0, 2.28556, -0.625)
+mesh = SubResource("BoxMesh_x2i33")
+
+[node name="Frame5" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(-5.7699e-08, -0.12, 0, 1.87, -7.43094e-09, 0, 0, 0, 0.1035, 0.663108, 1.43323, -0.625)
+mesh = SubResource("BoxMesh_x2i33")
+
+[node name="Frame6" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(-5.7699e-08, -0.12, 0, 1.87, -7.43094e-09, 0, 0, 0, 0.1035, -0.667659, 1.43323, -0.625)
+mesh = SubResource("BoxMesh_x2i33")
+
+[node name="Frame7" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(0.8558, 0, 0, 0, 0.1111, 0, 0, 0, 0.0675, 0, 1.67266, -0.625)
+mesh = SubResource("BoxMesh_x2i33")
+
+[node name="Frame8" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(-3.74082e-08, -0.0778, 0, 1.2221, -4.85634e-09, 0, 0, 0, 0.0675, 0.429915, 1.11564, -0.625)
+mesh = SubResource("BoxMesh_x2i33")
+
+[node name="Frame9" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(-3.74082e-08, -0.0778, 0, 1.2221, -4.85634e-09, 0, 0, 0, 0.0675, -0.432866, 1.11564, -0.625)
+mesh = SubResource("BoxMesh_x2i33")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hinge"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.875, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/StaticBody3D"]
+shape = SubResource("BoxShape3D_hmmnt")
+
+[node name="TrophyBase" type="GridMap" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh_library = ExtResource("1_ixk0h")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65534, 65535, 1441829, 65534, 0, 1441829, 65534, 1, 1441829, 65535, 65535, 1441829, 65535, 0, 1441829, 65535, 1, 1441829, 0, 65535, 1441829, 0, 0, 1441829, 0, 1, 1441829, 65534, 65534, 1441829, 65535, 65534, 1441829, 0, 65534, 1441829, 1, 65534, 1441829, 1, 65535, 1441829, 1, 0, 1441829, 1, 1, 1441829, 65532, 65532, 1441829, 65532, 65533, 1441829, 65532, 65534, 1441829, 65532, 65535, 1441829, 65532, 0, 1441829, 65532, 1, 1441829, 65532, 2, 1441829, 65532, 3, 1441829, 65533, 65532, 1441829, 65533, 65533, 1441829, 65533, 65534, 1441829, 65533, 65535, 1441829, 65533, 0, 1441829, 65533, 1, 1441829, 65533, 2, 1441829, 65533, 3, 1441829, 65534, 65532, 1441829, 65534, 65533, 1441829, 65534, 2, 1441829, 65534, 3, 1441829, 65535, 65532, 1441829, 65535, 65533, 1441829, 65535, 2, 1441829, 65535, 3, 1441829, 0, 65532, 1441829, 0, 65533, 1441829, 0, 2, 1441829, 0, 3, 1441829, 1, 65532, 1441829, 1, 65533, 1441829, 1, 2, 1441829, 1, 3, 1441829, 2, 65532, 1441829, 2, 65533, 1441829, 2, 65534, 1441829, 2, 65535, 1441829, 2, 0, 1441829, 2, 1, 1441829, 2, 2, 1441829, 2, 3, 1441829, 3, 65532, 1441829, 3, 65533, 1441829, 3, 65534, 1441829, 3, 65535, 1441829, 3, 0, 1441829, 3, 1, 1441829, 3, 2, 1441829, 3, 3, 1441829, 131069, 65533, 1376293, 131069, 65534, 1376293, 131069, 65535, 1376293, 131069, 0, 1376293, 131069, 1, 1376293, 131069, 2, 1376293, 131070, 65533, 1376293, 131070, 65534, 1376293, 131070, 65535, 1376293, 131070, 0, 1376293, 131070, 1, 1376293, 131070, 2, 1376293, 131071, 65533, 1376293, 131071, 65534, 1376293, 131071, 65535, 1376293, 131071, 0, 1376293, 131071, 1, 1376293, 131071, 2, 1376293, 65536, 65533, 1376293, 65536, 65534, 1376293, 65536, 65535, 1376293, 65536, 0, 1376293, 65536, 1, 1376293, 65536, 2, 1376293, 65537, 65533, 1376293, 65537, 65534, 1376293, 65537, 65535, 1376293, 65537, 0, 1376293, 65537, 1, 1376293, 65537, 2, 1376293, 65538, 65533, 1376293, 65538, 65534, 1376293, 65538, 65535, 1376293, 65538, 0, 1376293, 65538, 1, 1376293, 65538, 2, 1376293)
+}
+metadata/_editor_floor_ = Vector3(0, 11, 0)

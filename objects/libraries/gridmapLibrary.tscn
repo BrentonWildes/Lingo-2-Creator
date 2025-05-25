@@ -1,0 +1,194 @@
+[gd_scene load_steps=40 format=3 uid="uid://cggya8e6041gl"]
+
+[ext_resource type="PackedScene" uid="uid://q6itulahw3n" path="res://objects/nodes/block.tscn" id="1_x6hcm"]
+[ext_resource type="Material" uid="uid://qv5erqeyiuoh" path="res://assets/materials/white.material" id="2_1escx"]
+[ext_resource type="Material" uid="uid://bpbogfovdtyxn" path="res://assets/materials/black.material" id="3_uaqlk"]
+[ext_resource type="Material" uid="uid://bs0ai57ew5g02" path="res://assets/materials/red.material" id="4_a53pv"]
+[ext_resource type="Material" uid="uid://b1we3m48j2hex" path="res://assets/materials/blue.material" id="5_h8w8e"]
+[ext_resource type="Material" uid="uid://bx5kdxfreri21" path="res://assets/materials/green.material" id="6_t1xlj"]
+[ext_resource type="Material" uid="uid://6ufplbm3cfg6" path="res://assets/materials/yellow.material" id="7_6g4wp"]
+[ext_resource type="Material" uid="uid://dip12na25cufd" path="res://assets/materials/purple.material" id="8_r4hkt"]
+[ext_resource type="Material" uid="uid://pkqtunwfwefi" path="res://assets/materials/orange.material" id="9_vd1y1"]
+[ext_resource type="Material" uid="uid://btupeiuoe2woy" path="res://assets/materials/brown.material" id="10_eqecl"]
+[ext_resource type="Material" uid="uid://pmwkqtpikcsp" path="res://assets/materials/grayDark.material" id="11_cyo0j"]
+[ext_resource type="Material" uid="uid://bu3opki5nq610" path="res://assets/materials/gray.material" id="12_j5t2c"]
+[ext_resource type="Material" uid="uid://w722aifhluua" path="res://assets/materials/blueLight.material" id="13_cw45u"]
+[ext_resource type="Material" uid="uid://crkmemst8tu7" path="res://assets/materials/blackMatte.material" id="13_jhyqf"]
+[ext_resource type="Material" uid="uid://dtx44q52n2ho1" path="res://assets/materials/redLight.material" id="13_o5dhx"]
+[ext_resource type="Material" uid="uid://rerugpdfeuhh" path="res://assets/materials/plum.material" id="13_obusm"]
+[ext_resource type="Material" uid="uid://be5jwu05xhwd5" path="res://assets/materials/cream.material" id="14_1c8ic"]
+[ext_resource type="Material" uid="uid://3n1a8vyk5cr1" path="res://assets/materials/redDark.material" id="14_gso0x"]
+[ext_resource type="Material" uid="uid://b3ycaxkaxen3k" path="res://assets/materials/blueDark.material" id="14_iqxhd"]
+[ext_resource type="Material" uid="uid://d0m34khp2f132" path="res://assets/materials/pink.material" id="14_iyhtt"]
+[ext_resource type="Material" uid="uid://dnpfqho5egci0" path="res://assets/materials/greenLight.material" id="15_ijctp"]
+[ext_resource type="Material" uid="uid://ciu5d0dvfodio" path="res://assets/materials/turquoise.material" id="16_3nyna"]
+[ext_resource type="Material" uid="uid://dlvum8tiyvgd7" path="res://assets/materials/redBright.material" id="16_nb7ca"]
+[ext_resource type="Material" uid="uid://cbuo4ibpmy10t" path="res://assets/materials/magenta.material" id="16_p1xeq"]
+[ext_resource type="Material" uid="uid://bmdrmwkr7fuuv" path="res://assets/materials/greenDark.material" id="16_qws7h"]
+[ext_resource type="Material" uid="uid://bc26aalon20tw" path="res://assets/materials/purpleLight.material" id="17_le3vb"]
+[ext_resource type="Material" path="res://assets/materials/cyan.material" id="17_o7yqy"]
+[ext_resource type="Material" uid="uid://cfag1ty1610i2" path="res://assets/materials/purpleDark.material" id="18_ki7cj"]
+[ext_resource type="Material" uid="uid://diwegiyx6lpx2" path="res://assets/materials/yellowDark.material" id="20_2b6bj"]
+[ext_resource type="Material" uid="uid://llu4cliafedb" path="res://assets/materials/yellowLight.material" id="20_qyntu"]
+[ext_resource type="Material" path="res://assets/materials/limeBright.material" id="21_7bxjc"]
+[ext_resource type="Material" uid="uid://v6ubrnb37dhp" path="res://assets/materials/coral.material" id="21_w0t2u"]
+[ext_resource type="Material" uid="uid://cff7k1pwl26qo" path="res://assets/materials/orangeLight.material" id="23_rgoof"]
+[ext_resource type="Material" uid="uid://bpvgrdgcod0y7" path="res://assets/materials/gold.material" id="24_eewat"]
+[ext_resource type="Material" uid="uid://dc2toyctuqsxm" path="res://assets/materials/orangeDark.material" id="24_n7agp"]
+[ext_resource type="Material" uid="uid://by2rtpo8jn3s7" path="res://assets/materials/brass.material" id="25_g8i1y"]
+[ext_resource type="Material" uid="uid://b6s40ebquerwc" path="res://assets/materials/chocolate.material" id="26_0puvc"]
+[ext_resource type="Material" uid="uid://cn6dp551pxh84" path="res://assets/materials/khaki.material" id="31_vefhq"]
+[ext_resource type="Material" uid="uid://cew8wb63p3cos" path="res://assets/materials/amber.material" id="34_8xog6"]
+
+[node name="gridmapLibrary" type="Node3D"]
+
+[node name="001-white" parent="." instance=ExtResource("1_x6hcm")]
+surface_material_override/0 = ExtResource("2_1escx")
+
+[node name="002-black" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+surface_material_override/0 = ExtResource("3_uaqlk")
+
+[node name="003-red" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+surface_material_override/0 = ExtResource("4_a53pv")
+
+[node name="004-blue" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0)
+surface_material_override/0 = ExtResource("5_h8w8e")
+
+[node name="005-green" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+surface_material_override/0 = ExtResource("6_t1xlj")
+
+[node name="006-yellow" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0)
+surface_material_override/0 = ExtResource("7_6g4wp")
+
+[node name="007-purple" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+surface_material_override/0 = ExtResource("8_r4hkt")
+
+[node name="008-orange" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, 0)
+surface_material_override/0 = ExtResource("9_vd1y1")
+
+[node name="009-brown" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+surface_material_override/0 = ExtResource("10_eqecl")
+
+[node name="210-gray" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5)
+surface_material_override/0 = ExtResource("11_cyo0j")
+
+[node name="211-gray" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -1.5, 1.5)
+surface_material_override/0 = ExtResource("12_j5t2c")
+
+[node name="212-blackSoft" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -3, 1.5)
+surface_material_override/0 = ExtResource("13_jhyqf")
+
+[node name="310-redLight" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1.5)
+surface_material_override/0 = ExtResource("13_o5dhx")
+
+[node name="311-pink" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1.5, 1.5)
+surface_material_override/0 = ExtResource("14_iyhtt")
+
+[node name="320-redDark" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+surface_material_override/0 = ExtResource("14_gso0x")
+
+[node name="330-redBright" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4.5)
+surface_material_override/0 = ExtResource("16_nb7ca")
+
+[node name="410-blueLight" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 1.5)
+surface_material_override/0 = ExtResource("13_cw45u")
+
+[node name="420-blueDark" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 3)
+surface_material_override/0 = ExtResource("14_iqxhd")
+
+[node name="440-cyan" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 6)
+surface_material_override/0 = ExtResource("17_o7yqy")
+
+[node name="510-greenLight" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 1.5)
+surface_material_override/0 = ExtResource("15_ijctp")
+
+[node name="520-greenDark" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 3)
+surface_material_override/0 = ExtResource("16_qws7h")
+
+[node name="540-turquoise" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6)
+surface_material_override/0 = ExtResource("16_3nyna")
+
+[node name="550-lime" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 7.5)
+surface_material_override/0 = ExtResource("21_7bxjc")
+
+[node name="610-yellowLight" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 1.5)
+surface_material_override/0 = ExtResource("20_qyntu")
+
+[node name="620-yellowDark" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 3)
+surface_material_override/0 = ExtResource("20_2b6bj")
+
+[node name="680-gold" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 12)
+surface_material_override/0 = ExtResource("24_eewat")
+
+[node name="690-brass" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 13.5)
+surface_material_override/0 = ExtResource("25_g8i1y")
+
+[node name="710-purpleLight" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 1.5)
+surface_material_override/0 = ExtResource("17_le3vb")
+
+[node name="720-purpleDark" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 3)
+surface_material_override/0 = ExtResource("18_ki7cj")
+
+[node name="730-plum" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 4.5)
+surface_material_override/0 = ExtResource("13_obusm")
+
+[node name="770-magenta" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 10.5)
+surface_material_override/0 = ExtResource("16_p1xeq")
+
+[node name="810-orangeLight" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, 1.5)
+surface_material_override/0 = ExtResource("23_rgoof")
+
+[node name="820-orangeDark" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, 3)
+surface_material_override/0 = ExtResource("24_n7agp")
+
+[node name="860-amber" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, 9)
+surface_material_override/0 = ExtResource("34_8xog6")
+
+[node name="910-cream" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 1.5)
+surface_material_override/0 = ExtResource("14_1c8ic")
+
+[node name="920-chocolate" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 3)
+surface_material_override/0 = ExtResource("26_0puvc")
+
+[node name="960-khaki" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 9)
+surface_material_override/0 = ExtResource("31_vefhq")
+
+[node name="980-coral" parent="." instance=ExtResource("1_x6hcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 12)
+surface_material_override/0 = ExtResource("21_w0t2u")

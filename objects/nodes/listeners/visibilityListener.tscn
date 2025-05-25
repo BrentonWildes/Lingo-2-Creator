@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3ruh1f054f1y"]
+
+[ext_resource type="Script" path="res://scripts/nodes/listeners/visibilityListener.gd" id="1_vtqje"]
+
+[node name="visibilityListener" type="Node3D"]
+script = ExtResource("1_vtqje")
