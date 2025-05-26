@@ -1,3 +1,5 @@
+@tool
+
 extends Receiver
 class_name PanelMain
 
@@ -187,28 +189,31 @@ func _ready():
 	quad_mesh = get_node("Hinge/quad").get_mesh().duplicate()
 	get_node("Hinge/quad").mesh = quad_mesh
 	
-	if proxies.size() > 0:
-		get_node("Hinge/proxy").show()
+	if not Engine.is_editor_hint():
+		if proxies.size() > 0:
+			get_node("Hinge/proxy").show()
 	
 	setField("clue", clue)
 	setField("symbol", symbol)
 	setField("answer", answer)
-	checkSolvable(" ")
-	unlocks.unlocked_key.connect(checkSolvable)
 	
-	for proxy in proxies:
-		proxiables.push_back(get_node(proxy))
-	if play_sfx:
-		connect("sfx_success", sfxPlayer.sfx_play.bind("success"))
-		connect("sfx_unsuccess", sfxPlayer.sfx_play.bind("unsuccess"))
+	if not Engine.is_editor_hint():
+		checkSolvable(" ")
+		unlocks.unlocked_key.connect(checkSolvable)
 		
-	var mesh = get_node("Hinge/panelHolder/Hinge/MeshInstance3D")
-	mesh.set_surface_override_material(0, pedestal_material)
-	var mesh_bottom = get_node("Hinge/panelHolder/Hinge/MeshInstance3D2")
-	mesh_bottom.set_surface_override_material(0, pedestal_material)
-	
-	if ! has_pedestal:
-		get_node("Hinge/panelHolder").queue_free()
+		for proxy in proxies:
+			proxiables.push_back(get_node(proxy))
+		if play_sfx:
+			connect("sfx_success", sfxPlayer.sfx_play.bind("success"))
+			connect("sfx_unsuccess", sfxPlayer.sfx_play.bind("unsuccess"))
+			
+		var mesh = get_node("Hinge/panelHolder/Hinge/MeshInstance3D")
+		mesh.set_surface_override_material(0, pedestal_material)
+		var mesh_bottom = get_node("Hinge/panelHolder/Hinge/MeshInstance3D2")
+		mesh_bottom.set_surface_override_material(0, pedestal_material)
+		
+		if ! has_pedestal:
+			get_node("Hinge/panelHolder").queue_free()
 		
 #func _set_viewport_mat(_display_mesh : MeshInstance3D, _sub_viewport : SubViewport, _surface_id : int = 0):
 	#var _mat : StandardMaterial3D = StandardMaterial3D.new()
