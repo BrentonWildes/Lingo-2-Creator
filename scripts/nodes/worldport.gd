@@ -69,7 +69,9 @@ func bodyEntered(body):
 		call_deferred( "changeScene" )
 
 func changeScene():
+	var path = global.scenes[exit].path if global.scenes.has(exit) else "res://objects/scenes/" + exit + ".tscn"
+
 	if settings.worldport_fades == "always" || (settings.worldport_fades == "default" && fades):
-		fader._fade_start( "res://objects/scenes/" + exit + ".tscn" )
+		fader._fade_start( path )
 	else:
-		switcher.switch_map( "res://objects/scenes/" + exit + ".tscn" )
+		switcher.switch_map( path )
