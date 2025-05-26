@@ -8,10 +8,17 @@ extends Receiver
 @export var entry_rotate:Vector3 = Vector3(0,0,0)
 @export var sets_entry_point:bool = true
 
+var path
+
 func _ready():
 	super._ready()
 	
-	switcher.preload_map( "res://objects/scenes/" + exit + ".tscn" )
+	if global.reserved_scenes.has(exit) || exit.contains("credits"):
+		path = "res://objects/scenes/" + exit + ".tscn"
+	else:
+		path = "user://maps/" + exit + ".tscn"
+		
+	switcher.preload_map( path )
 
 func handleTriggered():
 	triggered += 1
@@ -30,4 +37,4 @@ func handleUntriggered():
 	triggered -= 1
 	
 func changeScene():
-	switcher.switch_map( "res://objects/scenes/" + exit + ".tscn" )
+	switcher.switch_map( path )

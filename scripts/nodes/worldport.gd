@@ -8,12 +8,19 @@ class_name Worldport
 @export var invisible:bool = false
 @export var fades:bool = false
 
+var path
+
 func _ready():
+	if global.reserved_scenes.has(exit) || exit.contains("credits"):
+		path = "res://objects/scenes/" + exit + ".tscn"
+	else:
+		path = "user://maps/" + exit + ".tscn"
+	
 	self.body_entered.connect(bodyEntered)
 	if settings.worldport_visible == "never" || (settings.worldport_visible == "default" && invisible):
 		get_node("MeshInstance3D").hide()
 	
-	switcher.preload_map("res://objects/scenes/" + exit + ".tscn")
+	switcher.preload_map( path )
 
 func bodyEntered(body):
 	if body.is_in_group("player"):
@@ -70,6 +77,6 @@ func bodyEntered(body):
 
 func changeScene():
 	if settings.worldport_fades == "always" || (settings.worldport_fades == "default" && fades):
-		fader._fade_start( "res://objects/scenes/" + exit + ".tscn" )
+		fader._fade_start( path )
 	else:
-		switcher.switch_map( "res://objects/scenes/" + exit + ".tscn" )
+		switcher.switch_map( path )
