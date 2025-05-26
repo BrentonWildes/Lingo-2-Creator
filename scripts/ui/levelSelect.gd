@@ -8,6 +8,8 @@ func _ready():
 	global.findScenes()
 	var scenes = global.scenes
 	for scene in scenes:
+		if scene.ends_with("_"):
+			continue
 		button = Button.new()
 		if scene == global.map:
 			button.disabled = true
