@@ -24,6 +24,7 @@ func _pressed():
 					switcher.switch_map("res://objects/scenes/" + global.personal_scenes[scene] + ".tscn")
 					return
 		if global.reserved_scenes.has(global.map):
+			global.universe = "lingo"
 			switcher.switch_map("res://objects/scenes/" + global.map + ".tscn")
 		else:
 			global.universe = global.map
