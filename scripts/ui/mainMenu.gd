@@ -1,6 +1,22 @@
 extends Node2D
 
 func _ready():
+	# Editor specific - load scenes from custom to maps automatically
+	var dir_source = global.directoryFindOrNew("res://objects/scenes/custom")
+	var _dir_dest = global.directoryFindOrNew("user://maps")
+	if dir_source:
+		dir_source.list_dir_begin()
+		var file_name = dir_source.get_next()
+		while file_name != "":
+			if dir_source.current_is_dir():
+				print("Skipping directory: " + file_name)
+			else:
+				DirAccess.copy_absolute( "res://objects/scenes/custom/" + file_name, "user://maps/" + file_name )
+			file_name = dir_source.get_next()
+	else:
+		print("An error occurred when trying to access the path.")
+	
+	
 	global.findScenes()
 	
 	switcher.preload_map(global.scenes[global.map].path)
