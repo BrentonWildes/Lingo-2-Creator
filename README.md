@@ -4,7 +4,7 @@ Thanks for your interest in making custom content for Lingo 2! You'll find here 
 
 ## Engine
 
-Use [Godot 4.3 with SteamWorks](https://github.com/GodotSteam/GodotSteam/releases/tag/v4.12) to test your builds.
+Use [Godot 4.3 with SteamWorks]([https://github.com/GodotSteam/GodotSteam/releases/tag/v4.12](https://codeberg.org/godotsteam/godotsteam/releases/tag/v4.12)) to test your builds.
 
 ## Testing
 
