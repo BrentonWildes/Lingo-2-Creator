@@ -1,3 +1,4 @@
+@tool
 extends Receiver
 class_name PanelMain
 
@@ -14,7 +15,8 @@ class_name PanelMain
 @export var proxies:Array[NodePath] = []
 @export var pedestal_material:StandardMaterial3D = preload("res://assets/materials/pedestal.material")
 @export var has_pedestal = true
-
+@export var toggle_to_refresh_text_editor_mode = false
+	
 var active_node
 var quad_mesh
 var solvable
@@ -182,17 +184,28 @@ func setField( field, value ):
 	else:
 		get_node("Hinge/" + field ).text = value
 
+func _process(_delta: float) -> void:
+	if toggle_to_refresh_text_editor_mode && Engine.is_editor_hint():
+		setField("clue", clue)
+		setField("symbol", symbol)
+		setField("answer", answer)
+
 func _ready():
-	super._ready()
+	super._ready()			
 	quad_mesh = get_node("Hinge/quad").get_mesh().duplicate()
 	get_node("Hinge/quad").mesh = quad_mesh
 	
-	if proxies.size() > 0:
-		get_node("Hinge/proxy").show()
+	if not Engine.is_editor_hint():		
+		if proxies.size() > 0:
+			get_node("Hinge/proxy").show()
 	
 	setField("clue", clue)
 	setField("symbol", symbol)
 	setField("answer", answer)
+	
+	if Engine.is_editor_hint():
+		return
+		
 	checkSolvable(" ")
 	unlocks.unlocked_key.connect(checkSolvable)
 	
